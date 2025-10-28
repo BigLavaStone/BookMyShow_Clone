@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyTickets: Movies & Events</title>
+    
+    <!-- Google Fonts for Poppins and Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- Custom Properties: Cool Ice Pastel Theme --- */
+        :root {
+            /* Color Palette */
+            --primary-bg: #F0F4F8; /* Very Light Blue-Gray, subtle ice base */
+            --secondary-bg: #FFFFFF; /* Pure White for cards & header */
+            --primary-text: #2C3E50; /* Dark Navy for main text/contrast */
+            --secondary-text: #7F8C8D; /* Medium Gray for details */
+            --accent-link: #69A6B2; /* Soft Slate/Ice Blue for links and highlights */
+            --accent-cta: #E47E64; /* Muted Peach/Coral for eye-catching CTAs */
+            --subtle-star: #FFC300; /* Amber Gold for stars */
+            --shadow-color-subtle: rgba(105, 166, 178, 0.2); /* Soft Ice Blue shadow */
+            
+            /* Typography */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* --- Header 1: Logo, Search, City, Sign In --- */
+        .top-header {
+            background-color: var(--secondary-bg);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .top-nav-content {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto; /* Logo | Search | City | Sign In */
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-logo {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-link);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .search-area {
+            display: flex;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px 10px 45px;
+            border: 1px solid #CFD8DC;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-link);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(105, 166, 178, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-text);
+        }
+
+        .city-dropdown {
+            padding: 8px 15px;
+            border: 1px solid #CFD8DC;
+            border-radius: 6px;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            cursor: pointer;
+            font-size: 15px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237F8C8D'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 12px;
+            padding-right: 30px;
+        }
+
+        .sign-in-btn {
+            background-color: var(--accent-cta);
+            color: var(--secondary-bg);
+            padding: 8px 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        .sign-in-btn:hover {
+            background-color: #d16e57;
+        }
+        
+        /* --- Secondary Navigation Bar (Core Links) --- */
+        .secondary-header {
+            background-color: var(--primary-text); 
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .secondary-nav-links {
+            display: flex;
+            gap: 30px;
+            justify-content: flex-start;
+            overflow-x: auto; 
+            padding-bottom: 5px; 
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .secondary-nav-links a {
+            color: var(--primary-bg); 
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0; 
+        }
+
+        .secondary-nav-links a:hover {
+            color: var(--accent-cta);
+        }
+        
+        /* --- Banner Area --- */
+        .banner-section {
+            padding: 30px 0;
+            background-color: var(--primary-bg);
+        }
+
+        .banner-image {
+            width: 100%;
+            height: 350px;
+            background-color: var(--accent-link);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-bg);
+            font-family: var(--font-heading);
+            font-size: 40px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(105, 166, 178, 0.4);
+            background-image: linear-gradient(135deg, #69A6B2 0%, #3E7989 100%);
+        }
+        
+        /* --- Section Headers --- */
+        .section-header {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-text); 
+            margin-bottom: 30px;
+            padding-top: 50px;
+        }
+        
+        /* --- Scrolling Content (Recommended Movies) --- */
+        .scrolling-content-container {
+            overflow-x: scroll;
+            white-space: nowrap;
+            padding-bottom: 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        
+        .scrolling-content-container::-webkit-scrollbar {
+            display: none; 
+        }
+
+        .content-card {
+            display: inline-block;
+            width: 250px;
+            margin-right: 20px;
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            vertical-align: top;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-poster {
+            width: 100%;
+            height: 350px; 
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-body {
+            padding: 15px;
+            white-space: normal;
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-text);
+            margin-bottom: 5px;
+        }
+
+        .card-details {
+            font-size: 14px;
+            color: var(--secondary-text); 
+        }
+
+        /* --- Category/Genre Icons Section --- */
+        .category-container {
+            text-align: center;
+            padding: 40px 0;
+            background-color: var(--secondary-bg);
+            margin-top: 60px;
+        }
+
+        .category-grid {
+            display: flex;
+            justify-content: space-around;
+            max-width: 900px;
+            margin: 20px auto 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary-text);
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s;
+            min-width: 80px;
+        }
+        
+        .category-item:hover {
+            color: var(--accent-cta);
+        }
+
+        .category-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: var(--accent-link);
+            border: 2px solid var(--accent-link);
+            border-radius: 50%;
+            padding: 10px;
+            background-color: var(--primary-bg);
+            transition: color 0.3s, border-color 0.3s;
+        }
+        
+        .category-item:hover .category-icon {
+            color: var(--accent-cta);
+            border-color: var(--accent-cta);
+        }
+
+        /* --- Footer (Minimal with Full Name Socials) --- */
+        footer {
+            background-color: #333333; 
+            color: #CCCCCC;
+            padding: 50px 0;
+            margin-top: 80px;
+        }
+        
+        .footer-logo-section {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #555555;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 700;
+            color: #EEEEEE; 
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .social-icons-footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons-footer a {
+            color: #AAAAAA;
+            font-size: 14px; /* Smaller font for text links */
+            transition: color 0.3s;
+            text-decoration: none;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        
+        .social-icons-footer a:hover {
+            color: var(--accent-cta);
+            border-color: var(--accent-cta);
+        }
+
+        .footer-disclaimer {
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            padding-top: 30px;
+            line-height: 1.5;
+        }
+
+        /* --- Responsiveness --- */
+        
+        @media (max-width: 1024px) {
+            .top-nav-content {
+                grid-template-columns: auto 1fr auto; 
+                gap: 15px;
+            }
+            
+            .sign-in-btn {
+                display: none; 
+            }
+
+            .secondary-nav-links {
+                padding: 0 25px 10px 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-nav-content {
+                grid-template-columns: 1fr auto; 
+                gap: 10px;
+                padding: 15px 25px;
+            }
+            
+            .header-logo {
+                display: none; 
+            }
+            
+            .search-area {
+                grid-column: 1 / 2;
+            }
+
+            .city-dropdown {
+                grid-column: 2 / 3;
+            }
+
+            .secondary-nav-links {
+                padding: 0 25px 10px 25px;
+            }
+
+            .content-card {
+                width: 200px;
+            }
+            
+            .card-poster {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .search-input {
+                font-size: 14px;
+            }
+
+            .city-dropdown {
+                font-size: 13px;
+                padding: 8px 10px;
+            }
+
+            .content-card {
+                width: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header 1: Logo, Search, City, Sign In -->
+    <header class="top-header">
+        <div class="container top-nav-content">
+            <a href="#" class="header-logo">
+                BookMy<span style="color: var(--accent-cta);">Tickets</span>
+            </a>
+            
+            <div class="search-area">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities" class="search-input">
+            </div>
+
+            <select class="city-dropdown">
+                <option value="bhubaneswar">Bhubaneswar</option>
+                <option value="bengaluru">Bengaluru</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="delhi">Delhi</option>
+                <option value="chennai">Chennai</option>
+            </select>
+            <a href="#" class="sign-in-btn">Sign In</a>
+        </div>
+    </header>
+
+    <!-- Header 2: Core Links Only -->
+    <div class="secondary-header">
+        <div class="container">
+            <nav class="secondary-nav-links">
+                <a href="#">Movies</a>
+                <a href="#">Events</a>
+                <a href="#">ListYourShow</a>
+                <a href="#">Offers</a>
+                <a href="#">Gift Cards</a>
+            </nav>
+        </div>
+    </div>
+
+    <main class="container">
+        
+        <!-- Hero Banner (Placeholder for Ad/Featured Content) -->
+        <section class="banner-section">
+            <div class="banner-image">
+                <span style="max-width: 80%;">Special Offer: Get 20% off on your first movie ticket!</span>
+            </div>
+        </section>
+        
+        <!-- Category/Genre Logos (Circular Icons) -->
+        <section class="category-container">
+            <h3 class="section-header" style="text-align: center; margin-bottom: 40px; color: var(--accent-cta);">Explore Genres & Activities</h3>
+            <div class="category-grid">
+                <a href="#" class="category-item">
+                    <span class="category-icon">🎬</span>
+                    Movies
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🎤</span>
+                    Concerts
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🎭</span>
+                    Theatre
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">⚽</span>
+                    Sports
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🤣</span>
+                    Comedy
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">💻</span>
+                    Workshops
+                </a>
+                <a href="#" class="category-item">
+                    <span class="category-icon">🏕️</span>
+                    Outdoor
+                </a>
+            </div>
+        </section>
+
+        <!-- Recommended Movies Section (Horizontal Scroll) -->
+        <section id="movies">
+            <h3 class="section-header">Recommended Movies</h3>
+            <div class="scrolling-content-container">
+                
+                <!-- Movie Card 1: Animal -->
+                <div class="content-card">
+                    <img 
+                        src="https://placehold.co/250x350/2C3E50/E47E64?text=ANIMAL" 
+                        alt="Animal Movie Poster" 
+                        class="card-poster"
+                    >
+                    <div class="card-body">
+                        <h4 class="card-title">Animal</h4>
+                        <p class="card-details">Action | Telugu/Hindi</p>
+                    </div>
+                </div>
+                
+                <!-- Movie Card 2: Kantara -->
+                <div class="content-card">
+                    <img 
+                        src="https://placehold.co/250x350/69A6B2/2C3E50?text=KANTARA" 
+                        alt="Kantara Movie Poster" 
+                        class="card-poster"
+                    >
+                    <div class="card-body">
+                        <h4 class="card-title">Kantara</h4>
+                        <p class="card-details">Action | Kannada</p>
+                    </div>
+                </div>
+                
+                <!-- Movie Card 3: Dunki -->
+                <div class="content-card">
+                    <img 
+                        src="https://placehold.co/250x350/E47E64/2C3E50?text=DUNKI" 
+                        alt="Dunki Movie Poster" 
+                        class="card-poster"
+                    >
+                    <div class="card-body">
+                        <h4 class="card-title">Dunki</h4>
+                        <p class="card-details">Drama | Hindi</p>
+                    </div>
+                </div>
+                
+                <!-- Movie Card 4: Jawan -->
+                <div class="content-card">
+                    <img 
+                        src="https://placehold.co/250x350/8b0000/FFFFFF?text=JAWAN" 
+                        alt="Jawan Movie Poster" 
+                        class="card-poster"
+                    >
+                    <div class="card-body">
+                        <h4 class="card-title">Jawan</h4>
+                        <p class="card-details">Action | Hindi/Tamil</p>
+                    </div>
+                </div>
+                
+                <!-- Movie Card 5: Pathaan -->
+                <div class="content-card">
+                    <img 
+                        src="https://placehold.co/250x350/607D8B/FFFFFF?text=PATHAAN" 
+                        alt="Pathaan Movie Poster" 
+                        class="card-poster"
+                    >
+                    <div class="card-body">
+                        <h4 class="card-title">Pathaan</h4>
+                        <p class="card-details">Thriller | Hindi</p>
+                    </div>
+                </div>
+                
+                <!-- Movie Card 6: Tiger 3 -->
+                <div class="content-card">
+                    <img 
+                        src="https://placehold.co/250x350/FF8A65/2C3E50?text=TIGER+3" 
+                        alt="Tiger 3 Movie Poster" 
+                        class="card-poster"
+                    >
+                    <div class="card-body">
+                        <h4 class="card-title">Tiger 3</h4>
+                        <p class="card-details">Action | Hindi</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Upcoming Concerts Section (Horizontal Scroll) -->
+        <section id="concerts">
+            <h3 class="section-header">Upcoming Concerts & Events</h3>
+            <div class="scrolling-content-container">
+                
+                <!-- Event Card 1 -->
+                <div class="content-card">
+                    <img src="https://placehold.co/250x350/69A6B2/FFFFFF?text=MUSIC+FEST" alt="Music Festival Poster" class="card-poster">
+                    <div class="card-body">
+                        <h4 class="card-title">The Winter Music Fest</h4>
+                        <p class="card-details">Live Music | Delhi | Dec 24</p>
+                    </div>
+                </div>
+                
+                <!-- Event Card 2 -->
+                <div class="content-card">
+                    <img src="https://placehold.co/250x350/E47E64/2C3E50?text=CLASSICAL" alt="Classical Concert Poster" class="card-poster">
+                    <div class="card-body">
+                        <h4 class="card-title">Raga Symphony Night</h4>
+                        <p class="card-details">Classical | Chennai | Jan 10</p>
+                    </div>
+                </div>
+                
+                <!-- Event Card 3 -->
+                <div class="content-card">
+                    <img src="https://placehold.co/250x350/2C3E50/69A6B2?text=STAND+UP" alt="Stand Up Comedy Poster" class="card-poster">
+                    <div class="card-body">
+                        <h4 class="card-title">Midnight Comedy Club</h4>
+                        <p class="card-details">Comedy | Bengaluru | Dec 01</p>
+                    </div>
+                </div>
+                
+                <!-- Event Card 4 -->
+                <div class="content-card">
+                    <img src="https://placehold.co/250x350/7F8C8D/FFFFFF?text=SPORTING" alt="Sporting Event Poster" class="card-poster">
+                    <div class="card-body">
+                        <h4 class="card-title">League Finals Live</h4>
+                        <p class="card-details">Sports | Mumbai | Nov 30</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Minimal with Full Name Socials) -->
+    <footer>
+        <div class="container">
+            
+            <!-- Logo, Social Media, and Disclaimer -->
+            <div class="footer-logo-section">
+                <span class="footer-logo">BookMy<span style="color: var(--accent-cta);">Tickets</span></span>
+                
+                <div class="social-icons-footer">
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="X (Twitter)">X (Twitter)</a>
+                    <a href="#" aria-label="Pinterest">Pinterest</a>
+                    <a href="#" aria-label="YouTube">YouTube</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <div class="footer-disclaimer">
+                The content and images used on this site are copyright protected and copyrights vests with the respective owners. The usage of the content and images on this website is intended to promote the works and no endorsement of the artist shall be implied. Unauthorized use is prohibited and punishable by law.
+                <br>Copyright 2025 by Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple Script for city selection/future interactions -->
+    <script>
+        const cityDropdown = document.querySelector('.city-dropdown');
+        cityDropdown.addEventListener('change', (event) => {
+            console.log('City selected:', event.target.value);
+            // In a real application, this would trigger content reload for the selected city.
+        });
+    </script>
+</body>
+</html>

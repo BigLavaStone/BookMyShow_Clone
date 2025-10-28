@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cinema in Bhubaneswar</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <div class="max-w-7xl mx-auto px-6 py-10">
+    <h1 class="text-2xl font-bold text-gray-800 mb-6">Cinema In Bhubaneswar</h1>
+
+    <!-- Search Bar -->
+    <div class="flex items-center border border-gray-300 rounded-lg px-4 py-2 mb-8 bg-white shadow-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z" />
+      </svg>
+      <input id="searchInput" type="text" placeholder="Search by cinema or area"
+        class="ml-3 w-full border-none focus:ring-0 text-gray-700 placeholder-gray-400" />
+    </div>
+
+    <!-- Cinema Cards Grid -->
+    <div id="cinemaList" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card Template -->
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">Sriya Swati Stutee Cineplexx (4K, DOLBY ATMOS)</h2>
+        <p class="text-gray-600 text-sm mt-2">Sriya Talkies Street, Janpath Road, Unit 3, Kharvela Nagar, Opposite ICICI Bank, Bhubaneshwar, Odisha</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">Maharaja (Christie 4K, DOLBY ATMOS 64 CHANNEL)</h2>
+        <p class="text-gray-600 text-sm mt-2">Bhoi Nagar, Service Road, Vani Vihar, Near Sky Automobile, Bhubaneswar, Odisha 751022, India</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">Cinepolis: Nexus Esplanade, Bhubaneswar</h2>
+        <p class="text-gray-600 text-sm mt-2">Esplanade One, Rasulgarh Industrial Estate, Industrial Area Estate, Rasulgarh, Bhubaneswar</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">Keshari Talkies (BARCO 4K LASER DOLBY ATMOS)</h2>
+        <p class="text-gray-600 text-sm mt-2">98, Unit-3, Sachivalaya Marg, OPTCL Colony, Anand Bazar, Kharbela Nagar, Bhubaneswar, Odisha</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">PVR: Utkal Kanika Galleria, Bhubaneswar</h2>
+        <p class="text-gray-600 text-sm mt-2">Kalpana Square, Gautam Nagar Street, Bhubaneswar, Odisha 751014, India</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">PJ Movies (Veena Theatre): Jatni</h2>
+        <p class="text-gray-600 text-sm mt-2">Sardar Patel Marg, Jatni, Odisha 752050, India</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">INOX: DN Regalia Mall</h2>
+        <p class="text-gray-600 text-sm mt-2">2nd Floor, DN Regalia Mall, IDCO Plot No 1/A, Bhagabanpur Industrial Estate, Patrapada</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">INOX: BMC Bhawani Mall</h2>
+        <p class="text-gray-600 text-sm mt-2">Market Street, Sahid Nagar, Bhubaneswar, Odisha 751007, India</p>
+      </div>
+
+      <div class="cinema-card bg-white rounded-lg shadow-sm p-5 border border-gray-200">
+        <h2 class="font-semibold text-lg text-gray-800">INOX: Symphony Mall</h2>
+        <p class="text-gray-600 text-sm mt-2">Plot No.149 Rudrapur NH16, Near Reliance Trends, Bhubaneswar, Odisha 752101, India</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Internal JavaScript for Search -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.cinema-card');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(query) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
