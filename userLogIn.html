@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Page Login</title>
+
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen bg-gray-900 flex items-center justify-center">
+
+  
+  <div class="bg-white w-full h-full flex flex-col items-center justify-center ">
+    <h2 class="text-3xl font-semibold mb-8 text-gray-800">Login</h2>
+
+    <div class="w-full max-w-sm ">
+      <input type="email" placeholder="Email"
+        class="w-full p-3 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+      <input type="password" placeholder="Password"
+        class="w-full p-3 mb-6 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+      <button id="loginBtn"
+        class="w-full bg-blue-600 text-white py-3 rounded hover:bg-red-500">
+        Login
+      </button>
+
+      <p class="mt-6 text-center text-gray-700 text-sm">
+        Don’t have an account?
+        <a href="#" class="text-blue-600 hover:underline">Sign up</a>
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>

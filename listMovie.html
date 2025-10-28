@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Hindi Movies</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+
+  <h1 class="text-2xl font-semibold mb-8 text-center">
+    Upcoming Hindi Movies
+  </h1>
+
+  <div class="flex flex-col md:flex-row">
+
+    
+    <div class="bg-white p-4 rounded-lg shadow-md mb-6 md:mb-0 md:mr-6 w-full md:w-72  h-full  flex flex-col">
+      <h2 class="text-lg font-semibold mb-3 text-gray-800">Filters</h2>
+
+      
+      <button id="langDropdownBtn" 
+        class="w-full flex justify-between items-center px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700">
+        <span id="selectedLang">Language</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform" id="dropdownIcon"
+          fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+     
+      <div id="langDropdownMenu" 
+        class="hidden mt-3 flex flex-wrap gap-2 p-2 border border-gray-200 bg-white rounded-lg shadow-lg">
+        <span class="lang px-3 py-1 bg-red-500 text-white rounded-full cursor-pointer">Hindi</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Tamil</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">English</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Urdu</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Odia</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Bhojpuri</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Punjabi</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Kannada</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Malayalam</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Marathi</span>
+        <span class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Telugu</span>
+      </div>
+    </div>
+
+    
+
+    
+
+  
+    <div class="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-64">
+        <a href="http://127.0.0.1:3000/movieDes.html" target="_blank">
+          <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MzEsIE9jdCAyMDI1,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00453094-xmjnhznqmh-portrait.jpg"
+            alt="Baahubali" class="w-full h-94 object-cover">
+        </a>
+        <div class="p-4">
+          <p class="text-gray-600 text-sm mb-1">31, Oct 2025</p>
+          <h2 class="text-lg font-semibold mb-1">Baahubali: The Epic</h2>
+          <p class="text-gray-600 text-sm">Action / Drama / Fantasy</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-64">
+        <a href="http://127.0.0.1:3000/movieDes1.html" target="_blank">
+          <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTksIERlYyAyMDI1,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00407893-bdvzfvrqja-portrait.jpg"
+            alt="Avatar" class="w-full h-94 object-cover">
+        </a>
+        <div class="p-4">
+          <p class="text-gray-600 text-sm mb-1">19, Dec 2025</p>
+          <h2 class="text-lg font-semibold mb-1">Avatar: Fire and Ash</h2>
+          <p class="text-gray-600 text-sm">Action / Adventure / Fantasy</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-64">
+        <a href="http://127.0.0.1:3000/movieDes2.html" target="_blank">
+          <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTksIE1hciAyMDI2,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00378770-dnthkxmuqq-portrait.jpg"
+            alt="Toxic" class="w-full h-94 object-cover">
+        </a>
+        <div class="p-4">
+          <p class="text-gray-600 text-sm mb-1">19, Mar 2026</p>
+          <h2 class="text-lg font-semibold mb-1">Toxic: A Fairy Tale for Grown-ups</h2>
+          <p class="text-gray-600 text-sm">Action / Thriller</p>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-64">
+        <a href="http://127.0.0.1:3000/movieDes3.html" target="_blank">
+          <img src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-OSwgSmFuIDIwMjY%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00383697-ewxeqqnmvj-portrait.jpg"
+            alt="The Raja Saab" class="w-full h-94 object-cover ">
+        </a>
+        <div class="p-5">
+          <p class="text-gray-600 text-sm mb-1">9, Jan 2026</p>
+          <h2 class="text-lg font-semibold mb-1">The Raja Saab</h2>
+          <p class="text-gray-600 text-sm">Comedy / Horror / Romantic</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const dropdownBtn = document.getElementById('langDropdownBtn');
+    const dropdownMenu = document.getElementById('langDropdownMenu');
+    const dropdownIcon = document.getElementById('dropdownIcon');
+    const selectedLang = document.getElementById('selectedLang');
+    const langButtons = document.querySelectorAll('.lang');
+
+    
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+      dropdownIcon.classList.toggle('rotate-180');
+    });
+
+   
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        langButtons.forEach(b => b.classList.remove('bg-red-500', 'text-white'));
+        langButtons.forEach(b => b.classList.add('bg-gray-100', 'text-gray-700'));
+        btn.classList.remove('bg-gray-100', 'text-gray-700');
+        btn.classList.add('bg-red-500', 'text-white');
+        selectedLang.textContent = btn.textContent;
+        dropdownMenu.classList.add('hidden');
+        dropdownIcon.classList.remove('rotate-180');
+      });
+    });
+
+    
+    window.addEventListener('click', (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add('hidden');
+        dropdownIcon.classList.remove('rotate-180');
+      }
+    });
+  </script>
+
+</body>
+</html>
