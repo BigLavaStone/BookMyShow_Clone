@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Seats | BookMyShow</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Tailwind CDN-->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!--Fav Icon-->
+  <link rel="icon" href="https://assets-in.bmscdn.com/webin/common/favicon.ico" type="image/x-icon">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <!-- Primary Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-[auto_1fr_auto_auto] items-center gap-4">
+      <a href="index.html" class="text-3xl font-bold text-gray-500 whitespace-nowrap font-[Outfit]">
+        BookMy<span class="text-rose-500">Show</span>
+      </a>
+
+      <div class="relative w-full">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><i class="fa fa-search"></i></span>
+        <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities"
+          class="w-full rounded-md border border-gray-300 pl-10 pr-4 py-2 bg-blue-50 focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out text-sm">
+      </div>
+
+      <select
+        class="rounded-md border border-gray-300 bg-blue-50 text-slate-800 px-3 py-2 pr-6 pl-3 text-sm cursor-pointer focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out appearance-none bg-[url('data:image/svg+xml,%3Csvg%20fill%3D%22%23666%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E')] 
+         bg-no-repeat bg-[length:1.5rem_1.5rem] bg-right bg-right-10">
+        <option>Bhubaneswar</option>
+        <option>Bengaluru</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Chennai</option>
+      </select>
+
+      <a href="LogIn.html"
+        class="bg-rose-500 text-white font-semibold rounded-md px-4 py-2 text-sm hover:bg-rose-600 whitespace-nowrap hidden md:inline-block">
+        Log In
+      </a>
+    </div>
+  </header>
+
+  <!-- Secondary Header -->
+  <div class="bg-slate-800 text-blue-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+      <nav class="flex space-x-8 overflow-x-auto py-3 text-md font-semibold font-[Outfit]">
+        <a href="MovieList.html" class="hover:text-rose-400 whitespace-nowrap">Movies</a>
+        <a href="UnderDev.html" class="hover:text-rose-400 whitespace-nowrap">ListYourShow</a>
+        <a href="AboutUs.html" class="hover:text-rose-400 whitespace-nowrap">About Us</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-6 py-8">
+    <!-- Movie & Show Info -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-bold mb-2">Dunki (Hindi)</h1>
+      <p class="text-gray-600">INOX: Forum Mall • Today, 7:45 PM</p>
+    </div>
+
+    <!-- Seat Categories -->
+    <div class="mb-8 space-y-2">
+      <div class="flex items-center gap-4">
+        <span class="w-4 h-4 bg-gray-200 rounded"></span>
+        <span class="text-sm">Available</span>
+        <span class="w-4 h-4 bg-gray-400 rounded ml-4"></span>
+        <span class="text-sm">Taken</span>
+        <span class="w-4 h-4 bg-rose-500 rounded ml-4"></span>
+        <span class="text-sm">Selected</span>
+      </div>
+    </div>
+
+    <!-- Screen -->
+    <div class="mb-12 text-center">
+      <div class="h-2 bg-gray-300 w-3/4 mx-auto mb-4 rounded"></div>
+      <p class="text-sm text-gray-500">All eyes this way please!</p>
+    </div>
+
+    <!-- Seating Layout -->
+    <div class="mb-8 space-y-8 max-w-4xl mx-auto">
+      <!-- Premium -->
+      <div>
+        <h3 class="text-sm font-semibold mb-4 text-center">Premium - ₹350.00</h3>
+        <div class="flex flex-col items-center gap-2">
+          <!-- Row A -->
+          <div class="flex items-center gap-2">
+            <div class="text-xs text-gray-500 w-6 text-right">A</div>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">1</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">2</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">3</button>
+              <button class="w-8 h-8 bg-gray-400 rounded text-white cursor-not-allowed">4</button>
+              <div class="w-8"></div>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">5</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">6</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">7</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">8</button>
+            </div>
+          </div>
+          <!-- Row B -->
+          <div class="flex items-center gap-2">
+            <div class="text-xs text-gray-500 w-6 text-right">B</div>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">1</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">2</button>
+              <button class="w-8 h-8 bg-gray-400 rounded text-white cursor-not-allowed">3</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">4</button>
+              <div class="w-8"></div>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">5</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">6</button>
+              <button class="w-8 h-8 bg-gray-400 rounded text-white cursor-not-allowed">7</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">8</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Standard -->
+      <div class="pb-10">
+        <h3 class="text-sm font-semibold mb-4 text-center">Standard - ₹250.00</h3>
+        <div class="flex flex-col items-center gap-2">
+          <!-- Row E -->
+          <div class="flex items-center gap-2">
+            <div class="text-xs text-gray-500 w-6 text-right">E</div>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">1</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">2</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">3</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">4</button>
+              <div class="w-8"></div>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">5</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">6</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">7</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">8</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">9</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">10</button>
+            </div>
+          </div>
+          <!-- Row F -->
+          <div class="flex items-center gap-2">
+            <div class="text-xs text-gray-500 w-6 text-right">F</div>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">1</button>
+              <button class="w-8 h-8 bg-gray-400 rounded text-white cursor-not-allowed">2</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">3</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">4</button>
+              <div class="w-8"></div>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">5</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">6</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">7</button>
+              <button class="w-8 h-8 bg-gray-400 rounded text-white cursor-not-allowed">8</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">9</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">10</button>
+            </div>
+          </div>
+          <!-- Row G -->
+          <div class="flex items-center gap-2">
+            <div class="text-xs text-gray-500 w-6 text-right">G</div>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">1</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">2</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">3</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">4</button>
+              <div class="w-8"></div>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">5</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">6</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">7</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">8</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">9</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">10</button>
+            </div>
+          </div>
+          <!-- Row H -->
+          <div class="flex items-center gap-2">
+            <div class="text-xs text-gray-500 w-6 text-right">H</div>
+            <div class="flex gap-2">
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">1</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">2</button>
+              <button class="w-8 h-8 bg-gray-400 rounded text-white cursor-not-allowed">3</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">4</button>
+              <div class="w-8"></div>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">5</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">6</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">7</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">8</button>
+              <button class="w-8 h-8 bg-gray-400 rounded text-white cursor-not-allowed">9</button>
+              <button class="w-8 h-8 bg-gray-200 rounded hover:bg-rose-500 hover:text-white">10</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Info -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t p-4">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div>
+          <p class="text-sm text-gray-600" id="selectedSeats">No seats selected</p>
+          <p class="font-semibold">Total: ₹<span id="totalPrice">0.00</span></p>
+        </div>
+        <a href="Pmt.html" id="proceedBtn" class="bg-rose-500 text-white px-8 py-3 rounded font-semibold hover:bg-rose-600 opacity-50">
+          Proceed to Pay
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const selectedSeats = new Set();
+    
+    // Add click event to all seats that aren't occupied
+    document.querySelectorAll('button:not(.bg-gray-400)').forEach(seat => {
+      seat.addEventListener('click', function() {
+        const row = this.parentElement.parentElement.querySelector('.text-gray-500').textContent;
+        const seatNumber = this.textContent;
+        const seatId = row + seatNumber;
+
+        if (selectedSeats.has(seatId)) {
+          // Unselect seat
+          selectedSeats.delete(seatId);
+          this.classList.remove('bg-rose-500', 'text-white');
+          this.classList.add('bg-gray-200');
+        } else {
+          // Select seat
+          selectedSeats.add(seatId);
+          this.classList.remove('bg-gray-200');
+          this.classList.add('bg-rose-500', 'text-white');
+        }
+
+        // Update selected seats display and total price
+        updateDisplay();
+      });
+    });
+
+    function updateDisplay() {
+      const selectedSeatsElem = document.getElementById('selectedSeats');
+      const totalPriceElem = document.getElementById('totalPrice');
+      const proceedBtn = document.getElementById('proceedBtn');
+
+      if (selectedSeats.size > 0) {
+        // Show selected seats
+        selectedSeatsElem.textContent = 'Selected: ' + Array.from(selectedSeats).join(', ');
+        
+        // Calculate total price (Premium rows A-B: ₹350, Standard rows: ₹250)
+        const total = Array.from(selectedSeats).reduce((sum, seat) => {
+          return sum + (seat.startsWith('A') || seat.startsWith('B') ? 350 : 250);
+        }, 0);
+        
+        totalPriceElem.textContent = total.toFixed(2);
+        
+        // Enable proceed button
+        proceedBtn.style.opacity = '1';
+        proceedBtn.style.cursor = 'pointer';
+      } else {
+        // Reset display when no seats selected
+        selectedSeatsElem.textContent = 'No seats selected';
+        totalPriceElem.textContent = '0.00';
+        proceedBtn.style.opacity = '0.5';
+        proceedBtn.style.cursor = 'not-allowed';
+      }
+    }
+  </script>
+
+  <!-- Footer
+  <footer class="bg-neutral-800 text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center border-b border-neutral-600 pb-8">
+      <span class="text-4xl font-bold text-neutral-100 font-[Outfit]">BookMy<span class="text-rose-500">Show</span></span>
+
+      <div class="flex justify-center gap-4 mt-6 flex-wrap">
+        <a href="https://www.facebook.com/BookMyShowIN" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Facebook</a>
+        <a href="https://www.instagram.com/bookmyshowin/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Instagram</a>
+        <a href="https://twitter.com/BookMyShow/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">X (Twitter)</a>
+        <a href="https://www.pinterest.com/bookmyshow/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Pinterest</a>
+        <a href="https://www.youtube.com/user/BookMyShow/featured" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">YouTube</a>
+        <a href="https://www.linkedin.com/company/bookmyshow/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">LinkedIn</a>
+      </div>
+    </div>
+
+    <p class="text-xs text-neutral-500 mt-6 max-w-4xl mx-auto px-6 leading-relaxed text-center">
+      The content and images used on this site are copyright protected and copyrights vest with the respective owners. Unauthorized use is prohibited and punishable by law. <br>
+      Copyright 2025 by Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+    </p>
+  </footer> -->
+</body>
+</html>

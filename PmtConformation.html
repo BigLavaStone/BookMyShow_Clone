@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation | BookMyTickets</title>
+    
+    <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Tailwind CDN-->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!--Fav Icon-->
+  <link rel="icon" href="https://assets-in.bmscdn.com/webin/common/favicon.ico" type="image/x-icon">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- Custom Properties: Cool Ice Pastel Theme (Kept Consistent) --- */
+        :root {
+            /* Color Palette */
+            --primary-bg: #F0F4F8; /* Very Light Blue-Gray, subtle ice base */
+            --secondary-bg: #FFFFFF; /* Pure White for cards & header */
+            --primary-text: #2C3E50; /* Dark Navy for main text/contrast */
+            --secondary-text: #7F8C8D; /* Medium Gray for details */
+            --accent-link: #69A6B2; /* Soft Slate/Ice Blue for links and highlights */
+            --accent-cta: #E47E64; /* Muted Peach/Coral for eye-catching CTAs */
+            --subtle-star: #FFC300; /* Amber Gold for stars */
+            --shadow-color-subtle: rgba(105, 166, 178, 0.2); /* Soft Ice Blue shadow */
+            
+            /* Typography */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* --- Header 1: Logo, Search, City, Sign In (Copied) --- */
+        .top-header {
+            background-color: var(--secondary-bg);
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+        }
+
+        .top-nav-content {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto; /* Logo | Search | City | Sign In */
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-logo {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--accent-link);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .search-area {
+            display: flex;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px 15px 10px 45px;
+            border: 1px solid #CFD8DC;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-link);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(105, 166, 178, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--secondary-text);
+        }
+
+        .city-dropdown {
+            padding: 8px 15px;
+            border: 1px solid #CFD8DC;
+            border-radius: 6px;
+            background-color: var(--primary-bg);
+            color: var(--primary-text);
+            cursor: pointer;
+            font-size: 15px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237F8C8D'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            background-size: 12px;
+            padding-right: 30px;
+        }
+
+        .sign-in-btn {
+            background-color: var(--accent-cta);
+            color: var(--secondary-bg);
+            padding: 8px 18px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        .sign-in-btn:hover {
+            background-color: #d16e57;
+        }
+        
+        /* --- Secondary Navigation Bar (Copied) --- */
+        .secondary-header {
+            background-color: var(--primary-text); 
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .secondary-nav-links {
+            display: flex;
+            gap: 30px;
+            justify-content: flex-start;
+            overflow-x: auto; 
+            padding-bottom: 5px; 
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .secondary-nav-links a {
+            color: var(--primary-bg); 
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.3s;
+            white-space: nowrap;
+            flex-shrink: 0; 
+        }
+
+        .secondary-nav-links a:hover,
+        .secondary-nav-links a.active {
+            color: var(--accent-cta);
+        }
+        
+        /* --- Confirmation Content Styling --- */
+        .confirmation-box {
+            max-width: 650px;
+            margin: 60px auto;
+            background-color: var(--secondary-bg);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-top: 8px solid var(--accent-link); /* Feature color stripe */
+        }
+        
+        .confirmation-header {
+            background-color: var(--primary-bg);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .confirmation-header h1 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: #28a745; /* Green for Success */
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .confirmation-header p {
+            font-size: 16px;
+            color: var(--secondary-text);
+        }
+
+        .confirmation-body {
+            padding: 30px 40px;
+        }
+        
+        .booking-details {
+            margin-bottom: 30px;
+            border-bottom: 1px dashed #CFD8DC;
+            padding-bottom: 20px;
+        }
+
+        .booking-details h2 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            color: var(--primary-text);
+            margin-bottom: 15px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .detail-row strong {
+            color: var(--primary-text);
+        }
+
+        .detail-row span {
+            color: var(--secondary-text);
+        }
+        
+        .total-amount {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            padding: 15px 0;
+            color: var(--accent-cta);
+        }
+        
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 20px;
+        }
+
+        .btn-main {
+            background-color: var(--accent-cta);
+            color: var(--secondary-bg);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .btn-main:hover {
+            background-color: #d16e57;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-link);
+            border: 1px solid var(--accent-link);
+            padding: 10px 25px;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--accent-link);
+            color: var(--secondary-bg);
+        }
+
+
+        /* --- Footer (Copied) --- */
+        footer {
+            background-color: #333333; 
+            color: #CCCCCC;
+            padding: 50px 0;
+            margin-top: 80px;
+        }
+        
+        .footer-logo-section {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid #555555;
+        }
+        
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 700;
+            color: #EEEEEE; 
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .social-icons-footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons-footer a {
+            color: #AAAAAA;
+            font-size: 14px; 
+            transition: color 0.3s;
+            text-decoration: none;
+            border: 1px solid #555;
+            padding: 5px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        
+        .social-icons-footer a:hover {
+            color: var(--accent-cta);
+            border-color: var(--accent-cta);
+        }
+
+        .footer-disclaimer {
+            text-align: center;
+            font-size: 12px;
+            color: #888888;
+            padding-top: 30px;
+            line-height: 1.5;
+        }
+
+        /* --- Responsiveness --- */
+        
+        @media (max-width: 1024px) {
+            .top-nav-content {
+                grid-template-columns: auto 1fr auto; 
+                gap: 15px;
+            }
+            
+            .sign-in-btn {
+                display: none; 
+            }
+
+            .secondary-nav-links {
+                padding: 0 25px 10px 25px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .top-nav-content {
+                grid-template-columns: 1fr auto; 
+                gap: 10px;
+                padding: 15px 25px;
+            }
+            
+            .header-logo {
+                display: none; 
+            }
+            
+            .search-area {
+                grid-column: 1 / 2;
+            }
+
+            .city-dropdown {
+                grid-column: 2 / 3;
+            }
+
+            .secondary-nav-links {
+                padding: 0 25px 10px 25px;
+            }
+
+            .confirmation-body {
+                padding: 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-main, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .search-input {
+                font-size: 14px;
+            }
+
+            .city-dropdown {
+                font-size: 13px;
+                padding: 8px 10px;
+            }
+            
+            .confirmation-header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <header class="top-header">
+        <div class="container top-nav-content">
+            <a href="index.html" class="header-logo">
+                BookMy<span style="color: var(--accent-cta);">Tickets</span>
+            </a>
+            
+            <div class="search-area">
+                <span class="search-icon">🔍</span>
+                <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities" class="search-input">
+            </div>
+
+            <select class="city-dropdown">
+                <option value="bhubaneswar">Bhubaneswar</option>
+                <option value="bengaluru">Bengaluru</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="delhi">Delhi</option>
+                <option value="chennai">Chennai</option>
+            </select>
+            <a href="#" class="sign-in-btn">Sign In</a>
+        </div>
+    </header>
+
+    <div class="secondary-header">
+        <div class="container">
+            <nav class="secondary-nav-links">
+                <a href="#">Movies</a>
+                <a href="#">Events</a>
+                <a href="#">ListYourShow</a>
+                <a href="#">Offers</a>
+                <a href="#">Gift Cards</a>
+                <a href="#">About Us</a>
+            </nav>
+        </div>
+    </div> -->
+
+    <!-- Primary Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-[auto_1fr_auto_auto] items-center gap-4">
+      <a href="index.html" class="text-3xl font-bold text-gray-500 whitespace-nowrap font-[Outfit]">
+        BookMy<span class="text-rose-500">Show</span>
+      </a>
+
+      <div class="relative w-full">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><i class="fa fa-search"></i></span>
+        <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities"
+          class="w-full rounded-md border border-gray-300 pl-10 pr-4 py-2 bg-blue-50 focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out text-sm">
+      </div>
+
+      <select
+        class="rounded-md border border-gray-300 bg-blue-50 text-slate-800 px-3 py-2 pr-6 pl-3 text-sm cursor-pointer focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out appearance-none bg-[url('data:image/svg+xml,%3Csvg%20fill%3D%22%23666%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E')] 
+         bg-no-repeat bg-[length:1.5rem_1.5rem] bg-right bg-right-10">
+        <option>Bhubaneswar</option>
+        <option>Bengaluru</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Chennai</option>
+      </select>
+
+      <a href="LogIn.html"
+        class="bg-rose-500 text-white font-semibold rounded-md px-4 py-2 text-sm hover:bg-rose-600 whitespace-nowrap hidden md:inline-block">
+        Log In
+      </a>
+    </div>
+  </header>
+
+  <!-- Secondary Header -->
+  <div class="bg-slate-800 text-blue-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+      <nav class="flex space-x-8 overflow-x-auto py-3 text-md font-semibold font-[Outfit]">
+        <a href="MovieList.html" class="hover:text-rose-400 whitespace-nowrap">Movies</a>
+        <a href="UnderDev.html" class="hover:text-rose-400 whitespace-nowrap">ListYourShow</a>
+        <a href="AboutUs.html" class="hover:text-rose-400 whitespace-nowrap">About Us</a>
+      </nav>
+    </div>
+  </div>
+
+  <!--Main-->
+    <main class="container">
+        <div class="confirmation-box">
+            
+            <div class="confirmation-header">
+                <h1>✅ Payment Successful!</h1>
+                <p>Your booking is confirmed. Details have been sent to your email and phone.</p>
+            </div>
+            
+            <div class="confirmation-body">
+                
+                <div class="booking-details">
+                    <h2>Booking Summary</h2>
+                    
+                    <div class="detail-row">
+                        <strong>Booking ID:</strong>
+                        <span>BMT1423987</span>
+                    </div>
+                    <div class="detail-row">
+                        <strong>Movie/Event:</strong>
+                        <span>Dunki (Hindi)</span>
+                    </div>
+                    <div class="detail-row">
+                        <strong>Location:</strong>
+                        <span>INOX Forum, Bhubaneswar</span>
+                    </div>
+                    <div class="detail-row">
+                        <strong>Date & Time:</strong>
+                        <span>Friday, 1st Dec 2025 | 07:30 PM</span>
+                    </div>
+                    <div class="detail-row">
+                        <strong>Seats:</strong>
+                        <span>F5, F6 (2 Tickets)</span>
+                    </div>
+                </div>
+
+                <div class="detail-row total-amount">
+                    <strong>Amount Paid:</strong>
+                    <span>₹ 650.00</span>
+                </div>
+                
+                <p style="text-align: center; font-size: 14px; color: var(--accent-link); margin-top: 10px;">
+                    Scan the QR code in your email at the venue entrance.
+                </p>
+
+                <div class="action-buttons">
+                    <a href="#" class="btn-main">View Ticket Details</a>
+                    <a href="index.html" class="btn-secondary">Back to Homepage</a>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <!-- <footer>
+        <div class="container">
+            
+            <div class="footer-logo-section">
+                <span class="footer-logo">BookMy<span style="color: var(--accent-cta);">Tickets</span></span>
+                
+                <div class="social-icons-footer">
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="X (Twitter)">X (Twitter)</a>
+                    <a href="#" aria-label="Pinterest">Pinterest</a>
+                    <a href="#" aria-label="YouTube">YouTube</a>
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                </div>
+            </div>
+
+            <div class="footer-disclaimer">
+                The content and images used on this site are copyright protected and copyrights vests with the respective owners. The usage of the content and images on this website is intended to promote the works and no endorsement of the artist shall be implied. Unauthorized use is prohibited and punishable by law.
+                <br>Copyright 2025 by Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+            </div>
+        </div>
+    </footer> -->
+
+    <!-- Footer -->
+  <footer class="bg-neutral-800 text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center border-b border-neutral-600 pb-8">
+      <span class="text-4xl font-bold text-neutral-100 font-[Outfit]">BookMy<span class="text-rose-500">Show</span></span>
+
+      <div class="flex justify-center gap-4 mt-6 flex-wrap">
+        <a href="https://www.facebook.com/BookMyShowIN" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Facebook</a>
+        <a href="https://www.instagram.com/bookmyshowin/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Instagram</a>
+        <a href="https://twitter.com/BookMyShow/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">X (Twitter)</a>
+        <a href="https://www.pinterest.com/bookmyshow/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Pinterest</a>
+        <a href="https://www.youtube.com/user/BookMyShow/featured" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">YouTube</a>
+        <a href="https://www.linkedin.com/company/bookmyshow/" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">LinkedIn</a>
+      </div>
+    </div>
+
+    <p class="text-xs text-neutral-500 mt-6 max-w-4xl mx-auto px-6 leading-relaxed text-center">
+      The content and images used on this site are copyright protected and copyrights vest with the respective owners. Unauthorized use is prohibited and punishable by law. <br>
+      Copyright 2025 by Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+    </p>
+  </footer>
+
+    <script>
+        const cityDropdown = document.querySelector('.city-dropdown');
+        cityDropdown.addEventListener('change', (event) => {
+            console.log('City selected:', event.target.value);
+            // In a real application, this would trigger content reload for the selected city.
+        });
+    </script>
+</body>
+</html>
