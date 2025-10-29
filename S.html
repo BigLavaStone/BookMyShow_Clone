@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Tailwind CDN-->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!--Fav Icon-->
+    <link rel="icon" href="https://assets-in.bmscdn.com/webin/common/favicon.ico" type="image/x-icon">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="h-screen bg-gray-900 ">
+
+    <!-- Primary Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-[auto_1fr_auto_auto] items-center gap-4">
+            <a href="index.html" class="text-3xl font-bold text-gray-500 whitespace-nowrap font-[Outfit]">
+                BookMy<span class="text-rose-500">Show</span>
+            </a>
+
+            <div class="relative w-full">
+                <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><i class="fa fa-search"></i></span>
+                <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities"
+                    class="w-full rounded-md border border-gray-300 pl-10 pr-4 py-2 bg-blue-50 focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out text-sm">
+            </div>
+
+            <select class="rounded-md border border-gray-300 bg-blue-50 text-slate-800 px-3 py-2 pr-6 pl-3 text-sm cursor-pointer focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out appearance-none bg-[url('data:image/svg+xml,%3Csvg%20fill%3D%22%23666%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E')] 
+         bg-no-repeat bg-[length:1.5rem_1.5rem] bg-right bg-right-10">
+                <option>Bhubaneswar</option>
+                <option>Bengaluru</option>
+                <option>Mumbai</option>
+                <option>Delhi</option>
+                <option>Chennai</option>
+            </select>
+
+            <a href="LogIn.html"
+                class="bg-rose-500 text-white font-semibold rounded-md px-4 py-2 text-sm hover:bg-rose-600 whitespace-nowrap hidden md:inline-block">
+                Log In
+            </a>
+        </div>
+    </header>
+
+    <!-- Secondary Header -->
+    <div class="bg-slate-800 text-blue-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <nav class="flex space-x-8 overflow-x-auto py-3 text-sm font-semibold font-[Outfit] font-">
+                <a href="MovieList.html" class="hover:text-rose-400 whitespace-nowrap">Movies</a>
+                <a href="UnderDev.html" class="hover:text-rose-400 whitespace-nowrap">ListYourShow</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Background -->
+    <!-- <section class="relative min-h-screen flex items-center justify-center bg-slate-800 overflow-hidden py-10">
+        <div
+            class="absolute inset-0 bg-[url('https://placehold.co/1920x1080/2C3E50/E47E64?text=CINEMATIC+BACKGROUND')] bg-cover bg-center bg-fixed blur-md scale-105">
+        </div> -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden py-10">
+        <!-- <div class="fixed inset-0 bg-[url('https://placehold.co/1920x1080/2C3E50/E47E64?text=CINEMATIC+BACKGROUND')] bg-cover bg-center -z-10 blur scale-105"> -->
+        <!-- <div class="fixed inset-0 bg-[url('')] bg-cover bg-center -z-10 blur scale-105"> -->
+        <div class="fixed inset-0 bg-[url('https://i.pinimg.com/736x/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg')] bg-cover bg-center -z-10 blur-sm scale-105">
+        </div>
+
+        <!-- Registration card -->
+        <div
+            class="relative z-10 bg-white/90 backdrop-blur-xl shadow-2xl border border-white/50 rounded-2xl p-10 max-w-lg w-full text-center">
+
+            <h2 class="text-4xl font-bold text-slate-800 font-[Outfit] mb-2">Register <span
+                    class="text-rose-500">Now</span></h2>
+            <p class="text-gray-500 mb-8">Create your profile to start booking movies and events.</p>
+
+            <form class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-left">
+                <!-- First Name -->
+                <div>
+                    <label for="firstName" class="block text-sm font-semibold text-slate-700 mb-2">First Name</label>
+                    <input id="firstName" type="text" required placeholder="Enter your first name"
+                        class="w-full rounded-lg border border-gray-300 bg-slate-100 text-slate-800 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#69A6B2]" />
+                </div>
+
+                <!-- Last Name -->
+                <div>
+                    <label for="lastName" class="block text-sm font-semibold text-slate-700 mb-2">Last Name</label>
+                    <input id="lastName" type="text" required placeholder="Enter your last name"
+                        class="w-full rounded-lg border border-gray-300 bg-slate-100 text-slate-800 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#69A6B2]" />
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="phone" class="block text-sm font-semibold text-slate-700 mb-2">Phone Number</label>
+                    <input id="phone" type="tel" required pattern="[0-9]{10,15}" placeholder="e.g., +91 9876543210"
+                        class="w-full rounded-lg border border-gray-300 bg-slate-100 text-slate-800 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#69A6B2]" />
+                </div>
+
+                <!-- City -->
+                <div>
+                    <label for="location" class="block text-sm font-semibold text-slate-700 mb-2">Location</label>
+                    <select id="location" required
+                        class="w-full rounded-lg border border-gray-300 bg-slate-100 text-slate-800 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#69A6B2] appearance-none">
+                        <option value="" disabled selected>Select your city</option>
+                        <option value="bhubaneswar">Bhubaneswar</option>
+                        <option value="bengaluru">Bengaluru</option>
+                        <option value="mumbai">Mumbai</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="kolkata">Kolkata</option>
+                    </select>
+                </div>
+
+                <!-- Email -->
+                <div class="sm:col-span-2">
+                    <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email ID</label>
+                    <input id="email" type="email" required placeholder="you@example.com"
+                        class="w-full rounded-lg border border-gray-300 bg-slate-100 text-slate-800 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#69A6B2]" />
+                </div>
+
+                <!-- Password -->
+                <div class="sm:col-span-2">
+                    <label for="password" class="block text-sm font-semibold text-slate-700 mb-2">Create
+                        Password</label>
+                    <input id="password" type="password" required minlength="8" placeholder="Min 8 characters"
+                        class="w-full rounded-lg border border-gray-300 bg-slate-100 text-slate-800 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#69A6B2]" />
+                </div>
+
+                <!-- Button -->
+                <button type="submit"
+                    class="sm:col-span-2 bg-rose-500 text-white py-3 px-6 rounded-lg font-bold text-lg shadow-lg hover:bg-[#d16e57] transition-transform duration-200 hover:-translate-y-1">
+                    Create Account
+                </button>
+            </form>
+
+            <p class="text-gray-600 text-sm mt-6">Already have an account?
+                <a href="#" class="text-[#69A6B2] font-semibold hover:underline">Log In Here</a>
+            </p>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-neutral-800 text-neutral-300 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center border-b border-neutral-600 pb-8">
+            <span class="text-4xl font-bold text-neutral-100 font-[Outfit]">BookMy<span
+                    class="text-rose-500">Show</span></span>
+
+            <div class="flex justify-center gap-4 mt-6 flex-wrap">
+                <a href="https://www.facebook.com/BookMyShowIN"
+                    class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Facebook</a>
+                <a href="https://www.instagram.com/bookmyshowin/"
+                    class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Instagram</a>
+                <a href="https://twitter.com/BookMyShow/"
+                    class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">X
+                    (Twitter)</a>
+                <a href="https://www.pinterest.com/bookmyshow/"
+                    class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Pinterest</a>
+                <a href="https://www.youtube.com/user/BookMyShow/featured"
+                    class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">YouTube</a>
+                <a href="https://www.linkedin.com/company/bookmyshow/"
+                    class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">LinkedIn</a>
+            </div>
+        </div>
+
+        <p class="text-xs text-neutral-500 mt-6 max-w-4xl mx-auto px-6 leading-relaxed text-center">
+            The content and images used on this site are copyright protected and copyrights vest with the respective
+            owners. Unauthorized use is prohibited and punishable by law. <br>
+            Copyright 2025 by Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+        </p>
+    </footer>
+
+</body>
+</html>
