@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login - BookMyShow</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* Make page fit viewport and avoid scroll - WHITE THEME */
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); height: 100vh; overflow: hidden; color: #0f172a; }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+    .admin-card { 
+      transition: all 0.18s cubic-bezier(.2,.9,.2,1); 
+      cursor: pointer;
+      will-change: transform, box-shadow;
+    }
+    .admin-card:hover { 
+      transform: translateY(-6px) scale(1.01); 
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    }
+    .floating { animation: floating 4s ease-in-out infinite; }
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* Glass effect for compact look */
+    .glass {
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(15,23,42,0.06);
+    }
+
+    /* Keep icons and typography compact to fit in 100vh */
+    .compact-title { font-size: 1.35rem; }
+    .compact-sub { font-size: 0.85rem; }
+  </style>
+</head>
+<body class="h-screen flex items-center justify-center p-6">
+
+  <div class="max-w-4xl w-full h-full flex flex-col justify-between glass p-6 rounded-2xl">
+    
+    <!-- Header -->
+    <div class="text-center mb-6 floating">
+      <div class="inline-flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-full mb-4">
+        <i class="fas fa-shield-halved text-blue-600 text-2xl"></i>
+      </div>
+      <h1 class="text-3xl font-bold text-slate-900 mb-1 compact-title">Admin Portal</h1>
+      <p class="text-sm text-gray-600 compact-sub">Choose your admin access level</p>
+    </div>
+
+    <!-- Admin Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4 items-stretch">
+      
+      <!-- Cinema Admin -->
+      <div onclick="window.location.href='admin/CinemaAdminDashboard.html'" class="admin-card bg-white/95 glass rounded-2xl p-4 shadow-lg flex flex-col justify-between">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-building text-white text-3xl"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-slate-900 mb-2">Cinema Admin</h2>
+          <p class="text-sm text-gray-700 mb-4 leading-tight compact-sub">
+            Manage your cinema halls, shows, bookings, and financial reports. Access your venue-specific dashboard.
+          </p>
+          
+          <div class="w-full space-y-2 mb-4">
+            <div class="flex items-center gap-3 text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500"></i>
+              <span>Manage Shows & Halls</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500"></i>
+              <span>View Revenue Reports</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500"></i>
+              <span>Track Occupancy</span>
+            </div>
+          </div>
+
+          <button class="w-full bg-gradient-to-r from-blue-600 to-indigo-500 hover:from-blue-700 hover:to-indigo-600 text-white font-semibold py-3 rounded-lg transition transform hover:scale-[1.01]">
+            <i class="fas fa-sign-in-alt mr-2"></i>Login as Cinema Admin
+          </button>
+        </div>
+      </div>
+
+      <!-- App Admin -->
+      <div onclick="window.location.href='admin/AppAdminDashboard.html'" class="admin-card bg-white/95 glass rounded-2xl p-4 shadow-lg flex flex-col justify-between">
+        <div class="flex flex-col items-center text-center">
+          <div class="w-20 h-20 bg-gradient-to-br from-rose-500 to-pink-600 rounded-2xl flex items-center justify-center mb-4 shadow-md">
+            <i class="fas fa-crown text-white text-3xl"></i>
+          </div>
+          <h2 class="text-xl font-semibold text-slate-900 mb-2">App Admin</h2>
+          <p class="text-sm text-gray-700 mb-4 leading-tight compact-sub">
+            Full platform control. Manage all cinemas, movies, users, payouts, and access comprehensive analytics.
+          </p>
+          
+          <div class="w-full space-y-2 mb-4">
+            <div class="flex items-center gap-3 text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500"></i>
+              <span>Platform-wide Analytics</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500"></i>
+              <span>Manage All Cinemas</span>
+            </div>
+            <div class="flex items-center gap-3 text-sm text-gray-700">
+              <i class="fas fa-check-circle text-green-500"></i>
+              <span>Master Data Control</span>
+            </div>
+            <!-- shortened list to 3 items for compactness -->
+          </div>
+
+          <button class="w-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white font-semibold py-3 rounded-lg transition transform hover:scale-[1.01]">
+            <i class="fas fa-sign-in-alt mr-2"></i>Login as App Admin
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Back to Home -->
+    <div class="text-center compact-sub">
+      <a href="index.html" class="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors text-lg">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back to Home</span>
+      </a>
+    </div>
+
+    <!-- Security Notice -->
+    <div class="mt-6 bg-gray-50 border border-slate-100 rounded-lg p-4 text-center">
+      <i class="fas fa-lock text-gray-600 text-2xl mb-3"></i>
+      <p class="text-gray-600 text-xs">
+        <strong>Secure Access:</strong> All admin areas are protected with authentication and encryption. 
+        Unauthorized access attempts are logged and monitored.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Subtle background orbs - smaller size for compact layout -->
+  <div class="fixed inset-0 pointer-events-none">
+    <div class="absolute -left-10 top-12 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+    <div class="absolute -right-10 bottom-12 w-40 h-40 bg-rose-500/10 rounded-full blur-2xl"></div>
+  </div>
+
+</body>
+</html>

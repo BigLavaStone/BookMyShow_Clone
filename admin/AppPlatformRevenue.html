@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platform Revenue - App Admin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0f172a; }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+    .sidebar { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3); }
+    .menu-item { transition: all 0.3s ease; border-left: 3px solid transparent; }
+    .menu-item:hover { background: rgba(99, 102, 241, 0.1); border-left-color: #6366f1; transform: translateX(5px); }
+    .menu-item.active { background: rgba(99, 102, 241, 0.15); border-left-color: #6366f1; }
+    .submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .submenu.open { max-height: 500px; }
+    .submenu a.active { background: rgba(99, 102, 241, 0.2); color: white; }
+    .stat-card { transition: all 0.3s ease; }
+    .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3); }
+  </style>
+</head>
+<body class="text-gray-100">
+
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar w-64 flex-shrink-0 overflow-y-auto">
+      <div class="p-6">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center">
+            <i class="fas fa-crown text-white text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-white">BookMyShow</h2>
+            <p class="text-xs text-gray-400">App Admin</p>
+          </div>
+        </div>
+        
+        <nav class="space-y-2">
+          <a href="AppAdminDashboard.html" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+            <i class="fas fa-chart-line w-5"></i><span>Dashboard</span>
+          </a>
+          
+          <div>
+            <button onclick="toggleSubmenu('masterdata')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+              <i class="fas fa-database w-5"></i><span class="flex-1 text-left">Master Data</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="masterdata-arrow"></i>
+            </button>
+            <div id="masterdata-submenu" class="submenu ml-8 mt-1 space-y-1">
+              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Facility</a>
+              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Format</a>
+              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Language</a>
+              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Genre</a>
+              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Rating</a>
+            </div>
+          </div>
+          
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+            <i class="fas fa-film w-5"></i><span>Movies</span>
+          </a>
+          
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+            <i class="fas fa-building w-5"></i><span>Cinemas</span>
+          </a>
+          
+          <div>
+            <button onclick="toggleSubmenu('payouts')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+              <i class="fas fa-money-bill-transfer w-5"></i><span class="flex-1 text-left">Payouts</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="payouts-arrow"></i>
+            </button>
+            <div id="payouts-submenu" class="submenu ml-8 mt-1 space-y-1">
+              <a href="AppPendingPayout.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Pending Payout</a>
+              <a href="AppSendPayout.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Send Payout</a>
+              <a href="AppPayoutHistory.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Payout History</a>
+            </div>
+          </div>
+          
+          <div>
+            <button onclick="toggleSubmenu('reports')" class="menu-item active flex items-center gap-3 px-4 py-3 text-white rounded-lg w-full">
+              <i class="fas fa-chart-bar w-5"></i><span class="flex-1 text-left">Reports</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="reports-arrow" style="transform: rotate(180deg)"></i>
+            </button>
+            <div id="reports-submenu" class="submenu open ml-8 mt-1 space-y-1">
+              <a href="AppPlatformRevenue.html" class="active block px-4 py-2 text-gray-400 hover:text-white rounded">Platform Revenue</a>
+              <a href="AppPlatformPayouts.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Platform Payouts</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      
+      <div class="p-6 border-t border-gray-700">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-orange-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold">AD</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-white">Admin User</p>
+            <p class="text-xs text-gray-400">Super Admin</p>
+          </div>
+          <a href="../index.html" class="text-gray-400 hover:text-white"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto bg-slate-900">
+      <header class="bg-slate-800 border-b border-slate-700 px-8 py-4 sticky top-0 z-10">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-2xl font-bold text-white">Platform Revenue Report</h1>
+            <p class="text-sm text-gray-400">Comprehensive revenue analytics and insights</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <select class="bg-slate-700 text-white px-4 py-2 rounded-lg border-none">
+              <option>Last 30 Days</option>
+              <option>Last 3 Months</option>
+              <option>This Year</option>
+            </select>
+            <button class="px-4 py-2 bg-rose-600 hover:bg-rose-700 rounded-lg text-white font-semibold transition-colors">
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="p-8">
+        
+        <!-- Revenue Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          
+          <div class="stat-card bg-gradient-to-br from-emerald-500 to-teal-600 p-6 rounded-xl text-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-rupee-sign text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">₹254.8L</h3>
+            <p class="text-white/80 text-sm">Total Revenue (30 Days)</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i class="fas fa-arrow-up"></i>
+              <span>28% from last period</span>
+            </div>
+          </div>
+
+          <div class="stat-card bg-gradient-to-br from-blue-500 to-cyan-600 p-6 rounded-xl text-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-ticket text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">1.42M</h3>
+            <p class="text-white/80 text-sm">Tickets Sold</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i class="fas fa-arrow-up"></i>
+              <span>18% increase</span>
+            </div>
+          </div>
+
+          <div class="stat-card bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-xl text-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-percentage text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">12.5%</h3>
+            <p class="text-white/80 text-sm">Platform Commission</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <span>₹31.85L earned</span>
+            </div>
+          </div>
+
+          <div class="stat-card bg-gradient-to-br from-rose-500 to-pink-600 p-6 rounded-xl text-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-chart-line text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">₹179</h3>
+            <p class="text-white/80 text-sm">Avg Ticket Price</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i class="fas fa-arrow-up"></i>
+              <span>5% from last month</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+            <h3 class="text-lg font-bold text-white mb-6">Revenue Trend (Last 30 Days)</h3>
+            <div style="height: 300px">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+            <h3 class="text-lg font-bold text-white mb-6">Revenue by Cinema Type</h3>
+            <div style="height: 300px">
+              <canvas id="cinemaTypeChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Performing Movies -->
+        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mb-8">
+          <h3 class="text-lg font-bold text-white mb-6">Top Revenue Generating Movies</h3>
+          <div class="space-y-4">
+            
+            <div class="flex items-center gap-4 p-4 bg-slate-700/50 rounded-lg">
+              <div class="w-16 h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold">
+                1
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-white text-lg">Pushpa 2: The Rule</p>
+                <p class="text-sm text-gray-400">Action • Telugu, Hindi, Tamil</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-bold text-emerald-400">₹42.8L</p>
+                <p class="text-xs text-gray-400">248K tickets</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 bg-slate-700/50 rounded-lg">
+              <div class="w-16 h-20 bg-gradient-to-br from-gray-400 to-gray-600 rounded-lg flex items-center justify-center text-white font-bold">
+                2
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-white text-lg">Stree 2</p>
+                <p class="text-sm text-gray-400">Horror Comedy • Hindi</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-bold text-emerald-400">₹38.4L</p>
+                <p class="text-xs text-gray-400">215K tickets</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 bg-slate-700/50 rounded-lg">
+              <div class="w-16 h-20 bg-gradient-to-br from-orange-600 to-red-700 rounded-lg flex items-center justify-center text-white font-bold">
+                3
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-white text-lg">Jawan</p>
+                <p class="text-sm text-gray-400">Action Thriller • Hindi</p>
+              </div>
+              <div class="text-right">
+                <p class="text-2xl font-bold text-emerald-400">₹35.2L</p>
+                <p class="text-xs text-gray-400">198K tickets</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Cinema-wise Revenue -->
+        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-bold text-white">Top Performing Cinemas</h3>
+            <button class="text-rose-400 hover:text-rose-300 text-sm font-semibold">View All →</button>
+          </div>
+          <div style="height: 300px">
+            <canvas id="topCinemasChart"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleSubmenu(menu) {
+      const submenu = document.getElementById(menu + '-submenu');
+      const arrow = document.getElementById(menu + '-arrow');
+      submenu.classList.toggle('open');
+      arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+    new Chart(revenueCtx, {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Revenue',
+          data: [5800000, 6200000, 7100000, 6700000],
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          tension: 0.4,
+          fill: true,
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+          x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
+        }
+      }
+    });
+
+    const cinemaTypeCtx = document.getElementById('cinemaTypeChart').getContext('2d');
+    new Chart(cinemaTypeCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Multiplex', 'Single Screen', 'Premium'],
+        datasets: [{
+          data: [62, 28, 10],
+          backgroundColor: ['#ec4899', '#a855f7', '#3b82f6'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { color: '#9ca3af', padding: 20 } } }
+      }
+    });
+
+    const topCinemasCtx = document.getElementById('topCinemasChart').getContext('2d');
+    new Chart(topCinemasCtx, {
+      type: 'bar',
+      data: {
+        labels: ['PVR Saket', 'INOX Mumbai', 'Cinepolis BLR', 'Maharaja CHN', 'Carnival HYD', 'PVR Pune'],
+        datasets: [{
+          label: 'Revenue',
+          data: [4280000, 3840000, 3520000, 2980000, 2650000, 2420000],
+          backgroundColor: ['#ec4899', '#a855f7', '#3b82f6', '#10b981', '#f59e0b', '#ef4444'],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+          x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
