@@ -11,9 +11,9 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
-    body { font-family: 'Inter', sans-serif; background: #0f172a; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); color:#0f172a; }
     h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
-    .sidebar { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3); }
+    .sidebar { background: #fff; border-right: 1px solid rgba(15,23,42,0.06); box-shadow:none; }
     .menu-item { transition: all 0.3s ease; border-left: 3px solid transparent; }
     .menu-item:hover { background: rgba(99, 102, 241, 0.1); border-left-color: #6366f1; transform: translateX(5px); }
     .menu-item.active { background: rgba(99, 102, 241, 0.15); border-left-color: #6366f1; }
@@ -21,7 +21,7 @@
     .submenu.open { max-height: 500px; }
   </style>
 </head>
-<body class="text-gray-100">
+<body class="text-gray-900">
 
   <div class="flex h-screen overflow-hidden">
     
@@ -33,7 +33,7 @@
             <i class="fas fa-film text-white text-xl"></i>
           </div>
           <div>
-            <h2 class="text-xl font-bold text-white">BookMyShow</h2>
+            <h2 class="text-xl font-bold text-slate-900">BookMyShow</h2>
             <p class="text-xs text-gray-400">Cinema Admin</p>
           </div>
         </div>
@@ -48,10 +48,10 @@
               <i class="fas fa-chevron-down text-xs transition-transform" id="cinema-arrow"></i>
             </button>
             <div id="cinema-submenu" class="submenu ml-8 mt-1 space-y-1">
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Profile</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Facilities</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Gallery</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Financial</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Profile</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Facilities</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Gallery</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Financial</a>
             </div>
           </div>
           <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
@@ -66,8 +66,8 @@
               <i class="fas fa-chevron-down text-xs transition-transform" id="reports-arrow" style="transform: rotate(180deg);"></i>
             </button>
             <div id="reports-submenu" class="submenu open ml-8 mt-1 space-y-1">
-              <a href="CinemaShowReport.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Show Report</a>
-              <a href="CinemaMoneyReport.html" class="block px-4 py-2 text-indigo-400 hover:text-white rounded">Revenue Report</a>
+              <a href="CinemaShowReport.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Show Report</a>
+              <a href="CinemaMoneyReport.html" class="block px-4 py-2 text-indigo-600 hover:text-slate-900 rounded">Revenue Report</a>
             </div>
           </div>
         </nav>
@@ -79,24 +79,24 @@
             <span class="text-white font-bold">PV</span>
           </div>
           <div class="flex-1">
-            <p class="text-sm font-semibold text-white">PVR Cinemas</p>
+            <p class="text-sm font-semibold text-slate-900">PVR Cinemas</p>
             <p class="text-xs text-gray-400">Bhubaneswar</p>
           </div>
-          <a href="../index.html" class="text-gray-400 hover:text-white"><i class="fas fa-sign-out-alt"></i></a>
+          <a href="../index.html" class="text-gray-500 hover:text-slate-900"><i class="fas fa-sign-out-alt"></i></a>
         </div>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto bg-slate-900">
-      <header class="bg-slate-800 border-b border-slate-700 px-8 py-4 sticky top-0 z-10">
+    <main class="flex-1 overflow-y-auto bg-gray-50">
+      <header class="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-10">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-2xl font-bold text-white">Revenue Reports</h1>
-            <p class="text-sm text-gray-400">Track your earnings and payouts</p>
+            <h1 class="text-2xl font-bold text-slate-900">Revenue Reports</h1>
+            <p class="text-sm text-gray-500">Track your earnings and payouts</p>
           </div>
           <div class="flex items-center gap-4">
-            <select class="bg-slate-700 text-white px-4 py-2 rounded-lg border-none focus:ring-2 focus:ring-indigo-500">
+            <select class="bg-gray-100 text-slate-900 px-4 py-2 rounded-lg border-none focus:ring-2 focus:ring-indigo-500">
               <option>This Month</option>
               <option>Last Month</option>
               <option>Last 3 Months</option>
@@ -154,17 +154,17 @@
         </div>
 
         <!-- Revenue Chart -->
-        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mb-8">
-          <h3 class="text-lg font-bold text-white mb-6">Revenue Trend</h3>
+        <div class="bg-white rounded-xl p-6 border border-gray-200 mb-8">
+          <h3 class="text-lg font-bold text-slate-900 mb-6">Revenue Trend</h3>
           <div style="height: 300px">
             <canvas id="revenueChart"></canvas>
           </div>
         </div>
 
         <!-- Payout History -->
-        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+        <div class="bg-white rounded-xl p-6 border border-gray-200">
           <div class="flex items-center justify-between mb-6">
-            <h3 class="text-lg font-bold text-white">Payout History</h3>
+            <h3 class="text-lg font-bold text-slate-900">Payout History</h3>
             <button class="text-indigo-400 hover:text-indigo-300 text-sm font-semibold">View All →</button>
           </div>
           
@@ -181,7 +181,7 @@
                 </tr>
               </thead>
               <tbody class="text-gray-300">
-                <tr class="border-b border-slate-700/50 hover:bg-slate-700/30">
+                <tr class="border-b border-gray-200 hover:bg-gray-50">
                   <td class="py-4">Nov 10, 2025</td>
                   <td class="py-4 font-mono text-sm">TXN-2025-1110-001</td>
                   <td class="py-4 font-semibold">₹2,45,000</td>
@@ -189,7 +189,7 @@
                   <td class="py-4 font-bold text-green-400">₹2,20,500</td>
                   <td class="py-4"><span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">Completed</span></td>
                 </tr>
-                <tr class="border-b border-slate-700/50 hover:bg-slate-700/30">
+                <tr class="border-b border-gray-200 hover:bg-gray-50">
                   <td class="py-4">Nov 3, 2025</td>
                   <td class="py-4 font-mono text-sm">TXN-2025-1103-002</td>
                   <td class="py-4 font-semibold">₹3,12,500</td>
@@ -197,7 +197,7 @@
                   <td class="py-4 font-bold text-green-400">₹2,81,250</td>
                   <td class="py-4"><span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">Completed</span></td>
                 </tr>
-                <tr class="border-b border-slate-700/50 hover:bg-slate-700/30">
+                <tr class="border-b border-gray-200 hover:bg-gray-50">
                   <td class="py-4">Oct 27, 2025</td>
                   <td class="py-4 font-mono text-sm">TXN-2025-1027-003</td>
                   <td class="py-4 font-semibold">₹1,98,750</td>
@@ -205,7 +205,7 @@
                   <td class="py-4 font-bold text-green-400">₹1,78,875</td>
                   <td class="py-4"><span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">Completed</span></td>
                 </tr>
-                <tr class="hover:bg-slate-700/30">
+                <tr class="hover:bg-gray-50">
                   <td class="py-4">Oct 20, 2025</td>
                   <td class="py-4 font-mono text-sm">TXN-2025-1020-004</td>
                   <td class="py-4 font-semibold">₹2,67,800</td>
@@ -247,7 +247,7 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(15, 23, 42, 0.06)' } },
           x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
         }
       }
