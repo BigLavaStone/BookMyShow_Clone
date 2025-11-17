@@ -20,7 +20,8 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background: #0f172a;
+      background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%);
+      color: #0f172a;
     }
     
     h1, h2, h3, h4 {
@@ -28,8 +29,9 @@
     }
     
     .sidebar {
-      background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
-      box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+      background: #ffffff;
+      border-right: 1px solid rgba(15,23,42,0.06);
+      box-shadow: none;
     }
     
     .menu-item {
@@ -64,8 +66,8 @@
     }
     
     .show-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(15,23,42,0.06);
     }
     
     .modal {
@@ -95,7 +97,7 @@
     }
   </style>
 </head>
-<body class="text-gray-100">
+<body class="text-gray-900">
 
   <div class="flex h-screen overflow-hidden">
     
@@ -107,32 +109,32 @@
             <i class="fas fa-film text-white text-xl"></i>
           </div>
           <div>
-            <h2 class="text-xl font-bold text-white">BookMyShow</h2>
-            <p class="text-xs text-gray-400">Cinema Admin</p>
+            <h2 class="text-xl font-bold text-slate-900">BookMyShow</h2>
+            <p class="text-xs text-gray-500">Cinema Admin</p>
           </div>
         </div>
         
         <nav class="space-y-2">
-          <a href="CinemaAdminDashboard.html" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+          <a href="CinemaAdminDashboard.html" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg">
             <i class="fas fa-chart-line w-5"></i>
             <span>Dashboard</span>
           </a>
           
           <div>
-            <button onclick="toggleSubmenu('cinema')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+            <button onclick="toggleSubmenu('cinema')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg w-full">
               <i class="fas fa-building w-5"></i>
               <span class="flex-1 text-left">Cinema</span>
               <i class="fas fa-chevron-down text-xs transition-transform" id="cinema-arrow"></i>
             </button>
             <div id="cinema-submenu" class="submenu ml-8 mt-1 space-y-1">
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Profile</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Facilities</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Gallery</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Financial</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Profile</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Facilities</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Gallery</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Financial</a>
             </div>
           </div>
           
-          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg">
             <i class="fas fa-door-open w-5"></i>
             <span>Halls</span>
           </a>
@@ -143,14 +145,14 @@
           </a>
           
           <div>
-            <button onclick="toggleSubmenu('reports')" class="menu-item active flex items-center gap-3 px-4 py-3 text-white rounded-lg w-full">
+            <button onclick="toggleSubmenu('reports')" class="menu-item active flex items-center gap-3 px-4 py-3 text-slate-900 rounded-lg w-full">
               <i class="fas fa-chart-bar w-5"></i>
               <span class="flex-1 text-left">Reports</span>
               <i class="fas fa-chevron-down text-xs transition-transform" id="reports-arrow" style="transform: rotate(180deg);"></i>
             </button>
             <div id="reports-submenu" class="submenu open ml-8 mt-1 space-y-1">
-              <a href="CinemaShowReport.html" class="block px-4 py-2 text-indigo-400 hover:text-white rounded">Show Report</a>
-              <a href="CinemaMoneyReport.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Revenue Report</a>
+              <a href="CinemaShowReport.html" class="block px-4 py-2 text-indigo-600 hover:text-slate-900 rounded">Show Report</a>
+              <a href="CinemaMoneyReport.html" class="block px-4 py-2 text-gray-500 hover:text-slate-900 rounded">Revenue Report</a>
             </div>
           </div>
         </nav>
@@ -159,13 +161,13 @@
       <div class="p-6 border-t border-gray-700">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
-            <span class="text-white font-bold">PV</span>
+            <span class="text-slate-900 font-bold">PV</span>
           </div>
           <div class="flex-1">
-            <p class="text-sm font-semibold text-white">PVR Cinemas</p>
+            <p class="text-sm font-semibold text-slate-900">PVR Cinemas</p>
             <p class="text-xs text-gray-400">Bhubaneswar</p>
           </div>
-          <a href="../index.html" class="text-gray-400 hover:text-white">
+          <a href="../index.html" class="text-gray-500 hover:text-slate-900">
             <i class="fas fa-sign-out-alt"></i>
           </a>
         </div>
@@ -173,19 +175,19 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto bg-slate-900">
+    <main class="flex-1 overflow-y-auto bg-gray-50">
       
       <!-- Top Bar -->
-      <header class="bg-slate-800 border-b border-slate-700 px-8 py-4 sticky top-0 z-10">
+      <header class="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-10">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-2xl font-bold text-white">Show Reports</h1>
-            <p class="text-sm text-gray-400">Track performance of all your shows</p>
+            <h1 class="text-2xl font-bold text-slate-900">Show Reports</h1>
+            <p class="text-sm text-gray-500">Track performance of all your shows</p>
           </div>
           <div class="flex items-center gap-4">
-            <div class="flex items-center gap-2 bg-slate-700 px-4 py-2 rounded-lg">
+            <div class="flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-lg">
               <i class="fas fa-calendar text-indigo-400"></i>
-              <input type="date" id="filterDate" class="bg-transparent text-white text-sm border-none focus:outline-none">
+              <input type="date" id="filterDate" class="bg-transparent text-slate-900 text-sm border-none focus:outline-none">
             </div>
             <button onclick="exportReport()" class="bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
               <i class="fas fa-download mr-2"></i>Export PDF
@@ -242,7 +244,7 @@
           <!-- Today's Shows -->
           <div>
             <div class="flex items-center justify-between mb-4">
-              <h2 class="text-xl font-bold text-white flex items-center gap-3">
+              <h2 class="text-xl font-bold text-slate-900 flex items-center gap-3">
                 <span class="w-1 h-8 bg-indigo-500 rounded-full"></span>
                 Today - November 17, 2025
               </h2>
@@ -252,11 +254,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               
               <!-- Show Card 1 -->
-              <div class="show-card bg-slate-800 border border-slate-700 rounded-xl p-5" onclick="openShowDetails('Animal', 'Hall 1', '10:30 AM', '180/200', '₹27,000', '90%')">
+              <div class="show-card bg-white border border-gray-200 rounded-xl p-5" onclick="openShowDetails('Animal', 'Hall 1', '10:30 AM', '180/200', '₹27,000', '90%')">
                 <div class="flex items-start gap-3 mb-4">
                   <img src="https://placehold.co/60x80/2C3E50/E47E64?text=ANIMAL" class="w-16 h-20 rounded object-cover">
                   <div class="flex-1">
-                    <h3 class="font-bold text-white mb-1">Animal</h3>
+                    <h3 class="font-bold text-slate-900 mb-1">Animal</h3>
                     <p class="text-xs text-gray-400 mb-2">Hall 1 • 10:30 AM</p>
                     <span class="bg-yellow-500/20 text-yellow-400 px-2 py-1 rounded text-xs font-semibold">Running</span>
                   </div>
@@ -264,7 +266,7 @@
                 <div class="space-y-2">
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Seats:</span>
-                    <span class="text-white font-semibold">180/200</span>
+                    <span class="text-slate-900 font-semibold">180/200</span>
                   </div>
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Revenue:</span>
@@ -278,11 +280,11 @@
               </div>
 
               <!-- Show Card 2 -->
-              <div class="show-card bg-slate-800 border border-slate-700 rounded-xl p-5" onclick="openShowDetails('Dunki', 'Hall 2', '02:00 PM', '145/180', '₹21,750', '81%')">
+              <div class="show-card bg-white border border-gray-200 rounded-xl p-5" onclick="openShowDetails('Dunki', 'Hall 2', '02:00 PM', '145/180', '₹21,750', '81%')">
                 <div class="flex items-start gap-3 mb-4">
                   <img src="https://placehold.co/60x80/69A6B2/2C3E50?text=DUNKI" class="w-16 h-20 rounded object-cover">
                   <div class="flex-1">
-                    <h3 class="font-bold text-white mb-1">Dunki</h3>
+                    <h3 class="font-bold text-slate-900 mb-1">Dunki</h3>
                     <p class="text-xs text-gray-400 mb-2">Hall 2 • 02:00 PM</p>
                     <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold">Upcoming</span>
                   </div>
@@ -290,7 +292,7 @@
                 <div class="space-y-2">
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Seats:</span>
-                    <span class="text-white font-semibold">145/180</span>
+                    <span class="text-slate-900 font-semibold">145/180</span>
                   </div>
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Revenue:</span>
@@ -304,11 +306,11 @@
               </div>
 
               <!-- Show Card 3 -->
-              <div class="show-card bg-slate-800 border border-slate-700 rounded-xl p-5" onclick="openShowDetails('Jawan', 'Hall 3', '06:30 PM', '98/200', '₹14,700', '49%')">
+              <div class="show-card bg-white border border-gray-200 rounded-xl p-5" onclick="openShowDetails('Jawan', 'Hall 3', '06:30 PM', '98/200', '₹14,700', '49%')">
                 <div class="flex items-start gap-3 mb-4">
                   <img src="https://placehold.co/60x80/8b0000/FFFFFF?text=JAWAN" class="w-16 h-20 rounded object-cover">
                   <div class="flex-1">
-                    <h3 class="font-bold text-white mb-1">Jawan</h3>
+                    <h3 class="font-bold text-slate-900 mb-1">Jawan</h3>
                     <p class="text-xs text-gray-400 mb-2">Hall 3 • 06:30 PM</p>
                     <span class="bg-blue-500/20 text-blue-400 px-2 py-1 rounded text-xs font-semibold">Upcoming</span>
                   </div>
@@ -316,7 +318,7 @@
                 <div class="space-y-2">
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Seats:</span>
-                    <span class="text-white font-semibold">98/200</span>
+                    <span class="text-slate-900 font-semibold">98/200</span>
                   </div>
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Revenue:</span>
@@ -330,7 +332,7 @@
               </div>
 
               <!-- Show Card 4 -->
-              <div class="show-card bg-slate-800 border border-slate-700 rounded-xl p-5" onclick="openShowDetails('Pathaan', 'Hall 4', '09:00 PM', '156/200', '₹23,400', '78%')">
+              <div class="show-card bg-white border border-gray-200 rounded-xl p-5" onclick="openShowDetails('Pathaan', 'Hall 4', '09:00 PM', '156/200', '₹23,400', '78%')">
                 <div class="flex items-start gap-3 mb-4">
                   <img src="https://placehold.co/60x80/607D8B/FFFFFF?text=PATHAAN" class="w-16 h-20 rounded object-cover">
                   <div class="flex-1">
@@ -361,7 +363,7 @@
           <!-- Tomorrow's Shows -->
           <div>
             <div class="flex items-center justify-between mb-4">
-              <h2 class="text-xl font-bold text-white flex items-center gap-3">
+              <h2 class="text-xl font-bold text-slate-900 flex items-center gap-3">
                 <span class="w-1 h-8 bg-purple-500 rounded-full"></span>
                 Tomorrow - November 18, 2025
               </h2>
@@ -371,11 +373,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               
               <!-- Show Card 5 -->
-              <div class="show-card bg-slate-800 border border-slate-700 rounded-xl p-5" onclick="openShowDetails('Tiger 3', 'Hall 1', '10:00 AM', '0/200', '₹0', '0%')">
+              <div class="show-card bg-white border border-gray-200 rounded-xl p-5" onclick="openShowDetails('Tiger 3', 'Hall 1', '10:00 AM', '0/200', '₹0', '0%')">
                 <div class="flex items-start gap-3 mb-4">
                   <img src="https://placehold.co/60x80/FF8A65/2C3E50?text=TIGER+3" class="w-16 h-20 rounded object-cover">
                   <div class="flex-1">
-                    <h3 class="font-bold text-white mb-1">Tiger 3</h3>
+                    <h3 class="font-bold text-slate-900 mb-1">Tiger 3</h3>
                     <p class="text-xs text-gray-400 mb-2">Hall 1 • 10:00 AM</p>
                     <span class="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-xs font-semibold">Scheduled</span>
                   </div>
@@ -383,7 +385,7 @@
                 <div class="space-y-2">
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Seats:</span>
-                    <span class="text-white font-semibold">0/200</span>
+                    <span class="text-slate-900 font-semibold">0/200</span>
                   </div>
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Revenue:</span>
@@ -397,11 +399,11 @@
               </div>
 
               <!-- Show Card 6 -->
-              <div class="show-card bg-slate-800 border border-slate-700 rounded-xl p-5" onclick="openShowDetails('Kantara', 'Hall 2', '01:30 PM', '45/180', '₹6,750', '25%')">
+              <div class="show-card bg-white border border-gray-200 rounded-xl p-5" onclick="openShowDetails('Kantara', 'Hall 2', '01:30 PM', '45/180', '₹6,750', '25%')">
                 <div class="flex items-start gap-3 mb-4">
                   <img src="https://placehold.co/60x80/69A6B2/2C3E50?text=KANTARA" class="w-16 h-20 rounded object-cover">
                   <div class="flex-1">
-                    <h3 class="font-bold text-white mb-1">Kantara</h3>
+                    <h3 class="font-bold text-slate-900 mb-1">Kantara</h3>
                     <p class="text-xs text-gray-400 mb-2">Hall 2 • 01:30 PM</p>
                     <span class="bg-gray-500/20 text-gray-400 px-2 py-1 rounded text-xs font-semibold">Scheduled</span>
                   </div>
@@ -409,7 +411,7 @@
                 <div class="space-y-2">
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Seats:</span>
-                    <span class="text-white font-semibold">45/180</span>
+                    <span class="text-slate-900 font-semibold">45/180</span>
                   </div>
                   <div class="flex justify-between text-sm">
                     <span class="text-gray-400">Revenue:</span>
@@ -423,7 +425,7 @@
               </div>
 
               <!-- More shows can be added -->
-              <div class="bg-slate-800 border border-dashed border-slate-600 rounded-xl p-5 flex items-center justify-center">
+              <div class="bg-white border border-dashed border-gray-200 rounded-xl p-5 flex items-center justify-center">
                 <div class="text-center text-gray-500">
                   <i class="fas fa-plus-circle text-3xl mb-2"></i>
                   <p class="text-sm">More shows...</p>
@@ -441,23 +443,23 @@
 
   <!-- Show Details Modal -->
   <div id="showModal" class="modal">
-    <div class="modal-content bg-slate-800 rounded-2xl p-8 max-w-3xl w-full mx-4 border border-slate-700">
+  <div class="modal-content bg-white rounded-2xl p-8 max-w-3xl w-full mx-4 border border-gray-200">
       <div class="flex items-start justify-between mb-6">
         <div>
-          <h2 class="text-2xl font-bold text-white mb-2" id="modalTitle"></h2>
+          <h2 class="text-2xl font-bold text-slate-900 mb-2" id="modalTitle"></h2>
           <p class="text-gray-400" id="modalSubtitle"></p>
         </div>
-        <button onclick="closeModal()" class="text-gray-400 hover:text-white text-2xl">
+        <button onclick="closeModal()" class="text-gray-400 hover:text-slate-900 text-2xl">
           <i class="fas fa-times"></i>
         </button>
       </div>
 
       <div class="grid grid-cols-2 gap-6 mb-6">
-        <div class="bg-slate-700/50 rounded-lg p-4">
+        <div class="bg-gray-100 rounded-lg p-4">
           <p class="text-gray-400 text-sm mb-1">Seats Booked</p>
-          <p class="text-2xl font-bold text-white" id="modalSeats"></p>
+          <p class="text-2xl font-bold text-slate-900" id="modalSeats"></p>
         </div>
-        <div class="bg-slate-700/50 rounded-lg p-4">
+        <div class="bg-gray-100 rounded-lg p-4">
           <p class="text-gray-400 text-sm mb-1">Revenue</p>
           <p class="text-2xl font-bold text-green-400" id="modalRevenue"></p>
         </div>
@@ -467,12 +469,12 @@
         </div>
         <div class="bg-slate-700/50 rounded-lg p-4">
           <p class="text-gray-400 text-sm mb-1">Average Ticket</p>
-          <p class="text-2xl font-bold text-white">₹150</p>
+          <p class="text-2xl font-bold text-slate-900">₹150</p>
         </div>
       </div>
 
-      <div class="bg-slate-700/50 rounded-lg p-4 mb-6">
-        <h3 class="font-semibold text-white mb-3">Seat Distribution</h3>
+      <div class="bg-gray-100 rounded-lg p-4 mb-6">
+        <h3 class="font-semibold text-slate-900 mb-3">Seat Distribution</h3>
         <div class="grid grid-cols-3 gap-4 text-sm">
           <div>
             <p class="text-gray-400 mb-1">Premium</p>
@@ -480,7 +482,7 @@
               <div class="flex-1 bg-slate-600 rounded-full h-2">
                 <div class="bg-purple-500 h-2 rounded-full" style="width: 85%"></div>
               </div>
-              <span class="text-white font-semibold">42/50</span>
+              <span class="text-slate-900 font-semibold">42/50</span>
             </div>
           </div>
           <div>
@@ -489,7 +491,7 @@
               <div class="flex-1 bg-slate-600 rounded-full h-2">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 75%"></div>
               </div>
-              <span class="text-white font-semibold">90/120</span>
+              <span class="text-slate-900 font-semibold">90/120</span>
             </div>
           </div>
           <div>
@@ -498,7 +500,7 @@
               <div class="flex-1 bg-slate-600 rounded-full h-2">
                 <div class="bg-green-500 h-2 rounded-full" style="width: 60%"></div>
               </div>
-              <span class="text-white font-semibold">18/30</span>
+              <span class="text-slate-900 font-semibold">18/30</span>
             </div>
           </div>
         </div>

@@ -11,9 +11,9 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
-    body { font-family: 'Inter', sans-serif; background: #0f172a; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); color:#0f172a; }
     h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
-    .sidebar { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3); }
+    .sidebar { background: #fff; border-right: 1px solid rgba(15,23,42,0.06); box-shadow:none; }
     .menu-item { transition: all 0.3s ease; border-left: 3px solid transparent; }
     .menu-item:hover { background: rgba(99, 102, 241, 0.1); border-left-color: #6366f1; transform: translateX(5px); }
     .menu-item.active { background: rgba(99, 102, 241, 0.15); border-left-color: #6366f1; }
@@ -24,19 +24,19 @@
     .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3); }
   </style>
 </head>
-<body class="text-gray-100">
+  <body class="text-gray-900">
 
   <div class="flex h-screen overflow-hidden">
     
     <!-- Sidebar -->
     <aside class="sidebar w-64 flex-shrink-0 overflow-y-auto">
       <div class="p-6">
-        <div class="flex items-center gap-3 mb-8">
+          <div class="flex items-center gap-3 mb-8">
           <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center">
             <i class="fas fa-crown text-white text-xl"></i>
           </div>
           <div>
-            <h2 class="text-xl font-bold text-white">BookMyShow</h2>
+            <h2 class="text-xl font-bold text-slate-900">BookMyShow</h2>
             <p class="text-xs text-gray-400">App Admin</p>
           </div>
         </div>
@@ -52,11 +52,11 @@
               <i class="fas fa-chevron-down text-xs transition-transform" id="masterdata-arrow"></i>
             </button>
             <div id="masterdata-submenu" class="submenu ml-8 mt-1 space-y-1">
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Facility</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Format</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Language</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Genre</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Rating</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Facility</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Format</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Language</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Genre</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Rating</a>
             </div>
           </div>
           
@@ -99,7 +99,7 @@
             <span class="text-white font-bold">AD</span>
           </div>
           <div class="flex-1">
-            <p class="text-sm font-semibold text-white">Admin User</p>
+            <p class="text-sm font-semibold text-slate-900">Admin User</p>
             <p class="text-xs text-gray-400">Super Admin</p>
           </div>
           <a href="../index.html" class="text-gray-400 hover:text-white"><i class="fas fa-sign-out-alt"></i></a>
@@ -108,15 +108,15 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto bg-slate-900">
-      <header class="bg-slate-800 border-b border-slate-700 px-8 py-4 sticky top-0 z-10">
+    <main class="flex-1 overflow-y-auto bg-gray-50">
+      <header class="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-10">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-2xl font-bold text-white">Platform Revenue Report</h1>
-            <p class="text-sm text-gray-400">Comprehensive revenue analytics and insights</p>
+            <h1 class="text-2xl font-bold text-slate-900">Platform Revenue Report</h1>
+            <p class="text-sm text-gray-500">Comprehensive revenue analytics and insights</p>
           </div>
           <div class="flex items-center gap-3">
-            <select class="bg-slate-700 text-white px-4 py-2 rounded-lg border-none">
+            <select class="bg-gray-100 text-slate-900 px-4 py-2 rounded-lg border-none">
               <option>Last 30 Days</option>
               <option>Last 3 Months</option>
               <option>This Year</option>
@@ -133,55 +133,55 @@
         <!-- Revenue Summary -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           
-          <div class="stat-card bg-gradient-to-br from-emerald-500 to-teal-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-rupee-sign text-2xl"></i>
               </div>
             </div>
             <h3 class="text-3xl font-bold mb-1">₹254.8L</h3>
-            <p class="text-white/80 text-sm">Total Revenue (30 Days)</p>
+            <p class="text-gray-600 text-sm">Total Revenue (30 Days)</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <i class="fas fa-arrow-up"></i>
               <span>28% from last period</span>
             </div>
           </div>
 
-          <div class="stat-card bg-gradient-to-br from-blue-500 to-cyan-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-ticket text-2xl"></i>
               </div>
             </div>
             <h3 class="text-3xl font-bold mb-1">1.42M</h3>
-            <p class="text-white/80 text-sm">Tickets Sold</p>
+            <p class="text-gray-600 text-sm">Tickets Sold</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <i class="fas fa-arrow-up"></i>
               <span>18% increase</span>
             </div>
           </div>
 
-          <div class="stat-card bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-percentage text-2xl"></i>
               </div>
             </div>
             <h3 class="text-3xl font-bold mb-1">12.5%</h3>
-            <p class="text-white/80 text-sm">Platform Commission</p>
+            <p class="text-gray-600 text-sm">Platform Commission</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <span>₹31.85L earned</span>
             </div>
           </div>
 
-          <div class="stat-card bg-gradient-to-br from-rose-500 to-pink-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-chart-line text-2xl"></i>
               </div>
             </div>
             <h3 class="text-3xl font-bold mb-1">₹179</h3>
-            <p class="text-white/80 text-sm">Avg Ticket Price</p>
+            <p class="text-gray-600 text-sm">Avg Ticket Price</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <i class="fas fa-arrow-up"></i>
               <span>5% from last month</span>
@@ -192,15 +192,15 @@
         <!-- Charts Row -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-            <h3 class="text-lg font-bold text-white mb-6">Revenue Trend (Last 30 Days)</h3>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-6">Revenue Trend (Last 30 Days)</h3>
             <div style="height: 300px">
               <canvas id="revenueChart"></canvas>
             </div>
           </div>
 
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-            <h3 class="text-lg font-bold text-white mb-6">Revenue by Cinema Type</h3>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-6">Revenue by Cinema Type</h3>
             <div style="height: 300px">
               <canvas id="cinemaTypeChart"></canvas>
             </div>
@@ -208,16 +208,16 @@
         </div>
 
         <!-- Top Performing Movies -->
-        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700 mb-8">
-          <h3 class="text-lg font-bold text-white mb-6">Top Revenue Generating Movies</h3>
+        <div class="bg-white rounded-xl p-6 border border-gray-200 mb-8">
+          <h3 class="text-lg font-bold text-slate-900 mb-6">Top Revenue Generating Movies</h3>
           <div class="space-y-4">
             
-            <div class="flex items-center gap-4 p-4 bg-slate-700/50 rounded-lg">
+            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
               <div class="w-16 h-20 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg flex items-center justify-center text-white font-bold">
                 1
               </div>
               <div class="flex-1">
-                <p class="font-semibold text-white text-lg">Pushpa 2: The Rule</p>
+                <p class="font-semibold text-slate-900 text-lg">Pushpa 2: The Rule</p>
                 <p class="text-sm text-gray-400">Action • Telugu, Hindi, Tamil</p>
               </div>
               <div class="text-right">
@@ -231,7 +231,7 @@
                 2
               </div>
               <div class="flex-1">
-                <p class="font-semibold text-white text-lg">Stree 2</p>
+                <p class="font-semibold text-slate-900 text-lg">Stree 2</p>
                 <p class="text-sm text-gray-400">Horror Comedy • Hindi</p>
               </div>
               <div class="text-right">
@@ -245,7 +245,7 @@
                 3
               </div>
               <div class="flex-1">
-                <p class="font-semibold text-white text-lg">Jawan</p>
+                <p class="font-semibold text-slate-900 text-lg">Jawan</p>
                 <p class="text-sm text-gray-400">Action Thriller • Hindi</p>
               </div>
               <div class="text-right">
@@ -258,10 +258,10 @@
         </div>
 
         <!-- Cinema-wise Revenue -->
-        <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
           <div class="flex items-center justify-between mb-6">
-            <h3 class="text-lg font-bold text-white">Top Performing Cinemas</h3>
-            <button class="text-rose-400 hover:text-rose-300 text-sm font-semibold">View All →</button>
+            <h3 class="text-lg font-bold text-slate-900">Top Performing Cinemas</h3>
+            <button class="text-rose-600 hover:text-rose-500 text-sm font-semibold">View All →</button>
           </div>
           <div style="height: 300px">
             <canvas id="topCinemasChart"></canvas>
@@ -300,7 +300,7 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(15, 23, 42, 0.06)' } },
           x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
         }
       }
@@ -341,7 +341,7 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(15, 23, 42, 0.06)' } },
           x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
         }
       }

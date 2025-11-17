@@ -11,9 +11,9 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
   <style>
-    body { font-family: 'Inter', sans-serif; background: #0f172a; }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); color:#0f172a; }
     h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
-    .sidebar { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3); }
+    .sidebar { background: #fff; border-right: 1px solid rgba(15,23,42,0.06); box-shadow:none; }
     .menu-item { transition: all 0.3s ease; border-left: 3px solid transparent; }
     .menu-item:hover { background: rgba(99, 102, 241, 0.1); border-left-color: #6366f1; transform: translateX(5px); }
     .menu-item.active { background: rgba(99, 102, 241, 0.15); border-left-color: #6366f1; }
@@ -23,7 +23,7 @@
     .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3); }
   </style>
 </head>
-<body class="text-gray-100">
+  <body class="text-gray-900">
 
   <div class="flex h-screen overflow-hidden">
     
@@ -35,58 +35,58 @@
             <i class="fas fa-crown text-white text-xl"></i>
           </div>
           <div>
-            <h2 class="text-xl font-bold text-white">BookMyShow</h2>
-            <p class="text-xs text-gray-400">App Admin</p>
+            <h2 class="text-xl font-bold text-slate-900">BookMyShow</h2>
+            <p class="text-xs text-gray-500">App Admin</p>
           </div>
         </div>
         
         <nav class="space-y-2">
-          <a href="AppAdminDashboard.html" class="menu-item active flex items-center gap-3 px-4 py-3 text-white rounded-lg">
+          <a href="AppAdminDashboard.html" class="menu-item active flex items-center gap-3 px-4 py-3 text-slate-900 rounded-lg bg-indigo-50">
             <i class="fas fa-chart-line w-5"></i><span>Dashboard</span>
           </a>
           
           <div>
-            <button onclick="toggleSubmenu('masterdata')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+            <button onclick="toggleSubmenu('masterdata')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg w-full">
               <i class="fas fa-database w-5"></i><span class="flex-1 text-left">Master Data</span>
               <i class="fas fa-chevron-down text-xs transition-transform" id="masterdata-arrow"></i>
             </button>
             <div id="masterdata-submenu" class="submenu ml-8 mt-1 space-y-1">
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Facility</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Format</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Language</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Genre</a>
-              <a href="#" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Rating</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Facility</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Format</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Language</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Genre</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Rating</a>
             </div>
           </div>
           
-          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg">
             <i class="fas fa-film w-5"></i><span>Movies</span>
           </a>
           
-          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg">
             <i class="fas fa-building w-5"></i><span>Cinemas</span>
           </a>
           
           <div>
-            <button onclick="toggleSubmenu('payouts')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+            <button onclick="toggleSubmenu('payouts')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg w-full">
               <i class="fas fa-money-bill-transfer w-5"></i><span class="flex-1 text-left">Payouts</span>
               <i class="fas fa-chevron-down text-xs transition-transform" id="payouts-arrow"></i>
             </button>
             <div id="payouts-submenu" class="submenu ml-8 mt-1 space-y-1">
-              <a href="AppPendingPayout.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Pending Payout</a>
-              <a href="AppSendPayout.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Send Payout</a>
-              <a href="AppPayoutHistory.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Payout History</a>
+              <a href="AppPendingPayout.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Pending Payout</a>
+              <a href="AppSendPayout.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Send Payout</a>
+              <a href="AppPayoutHistory.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Payout History</a>
             </div>
           </div>
           
           <div>
-            <button onclick="toggleSubmenu('reports')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+            <button onclick="toggleSubmenu('reports')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg w-full">
               <i class="fas fa-chart-bar w-5"></i><span class="flex-1 text-left">Reports</span>
               <i class="fas fa-chevron-down text-xs transition-transform" id="reports-arrow"></i>
             </button>
             <div id="reports-submenu" class="submenu ml-8 mt-1 space-y-1">
-              <a href="AppPlatformRevenue.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Platform Revenue</a>
-              <a href="AppPlatformPayouts.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Platform Payouts</a>
+              <a href="AppPlatformRevenue.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Platform Revenue</a>
+              <a href="AppPlatformPayouts.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Platform Payouts</a>
             </div>
           </div>
         </nav>
@@ -98,30 +98,30 @@
             <span class="text-white font-bold">AD</span>
           </div>
           <div class="flex-1">
-            <p class="text-sm font-semibold text-white">Admin User</p>
+            <p class="text-sm font-semibold text-slate-900">Admin User</p>
             <p class="text-xs text-gray-400">Super Admin</p>
           </div>
-          <a href="../index.html" class="text-gray-400 hover:text-white"><i class="fas fa-sign-out-alt"></i></a>
+          <a href="../index.html" class="text-gray-500 hover:text-slate-900"><i class="fas fa-sign-out-alt"></i></a>
         </div>
       </div>
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 overflow-y-auto bg-slate-900">
-      <header class="bg-slate-800 border-b border-slate-700 px-8 py-4 sticky top-0 z-10">
+    <main class="flex-1 overflow-y-auto bg-gray-50">
+      <header class="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-10">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-2xl font-bold text-white">Platform Dashboard</h1>
-            <p class="text-sm text-gray-400">Monitor your platform performance</p>
+            <h1 class="text-2xl font-bold text-slate-900">Platform Dashboard</h1>
+            <p class="text-sm text-gray-500">Monitor your platform performance</p>
           </div>
           <div class="flex items-center gap-4">
-            <button class="relative p-2 text-gray-400 hover:text-white">
+            <button class="relative p-2 text-gray-400 hover:text-slate-900">
               <i class="fas fa-bell text-xl"></i>
               <span class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
             <div class="flex items-center gap-3 px-4 py-2 bg-slate-700 rounded-lg">
               <i class="fas fa-calendar text-rose-400"></i>
-              <span class="text-sm text-white" id="current-date"></span>
+              <span class="text-sm text-slate-900" id="current-date"></span>
             </div>
           </div>
         </div>
@@ -132,7 +132,7 @@
         <!-- Key Metrics -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           
-          <div class="stat-card bg-gradient-to-br from-rose-500 to-pink-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-building text-2xl"></i>
@@ -140,14 +140,14 @@
               <span class="text-sm bg-white/20 px-3 py-1 rounded-full">Active</span>
             </div>
             <h3 class="text-3xl font-bold mb-1">342</h3>
-            <p class="text-white/80 text-sm">Active Cinemas</p>
+            <p class="text-gray-600 text-sm">Active Cinemas</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <i class="fas fa-arrow-up"></i>
               <span>12 new this month</span>
             </div>
           </div>
 
-          <div class="stat-card bg-gradient-to-br from-purple-500 to-indigo-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-users text-2xl"></i>
@@ -155,14 +155,14 @@
               <span class="text-sm bg-white/20 px-3 py-1 rounded-full">Total</span>
             </div>
             <h3 class="text-3xl font-bold mb-1">2.4M</h3>
-            <p class="text-white/80 text-sm">Total Users</p>
+            <p class="text-gray-600 text-sm">Total Users</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <i class="fas fa-arrow-up"></i>
               <span>18% growth</span>
             </div>
           </div>
 
-          <div class="stat-card bg-gradient-to-br from-cyan-500 to-blue-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-ticket text-2xl"></i>
@@ -170,14 +170,14 @@
               <span class="text-sm bg-white/20 px-3 py-1 rounded-full">Today</span>
             </div>
             <h3 class="text-3xl font-bold mb-1">48.2K</h3>
-            <p class="text-white/80 text-sm">Tickets Sold</p>
+            <p class="text-gray-600 text-sm">Tickets Sold</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <i class="fas fa-arrow-up"></i>
               <span>22% vs yesterday</span>
             </div>
           </div>
 
-          <div class="stat-card bg-gradient-to-br from-emerald-500 to-teal-600 p-6 rounded-xl text-white">
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
             <div class="flex items-center justify-between mb-4">
               <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
                 <i class="fas fa-rupee-sign text-2xl"></i>
@@ -185,7 +185,7 @@
               <span class="text-sm bg-white/20 px-3 py-1 rounded-full">Today</span>
             </div>
             <h3 class="text-3xl font-bold mb-1">₹84.6L</h3>
-            <p class="text-white/80 text-sm">Platform Revenue</p>
+            <p class="text-gray-600 text-sm">Platform Revenue</p>
             <div class="mt-3 flex items-center gap-2 text-sm">
               <i class="fas fa-arrow-up"></i>
               <span>25% vs yesterday</span>
@@ -196,10 +196,10 @@
         <!-- Charts Row -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
             <div class="flex items-center justify-between mb-6">
-              <h3 class="text-lg font-bold text-white">Revenue Overview</h3>
-              <select class="bg-slate-700 text-white text-sm px-4 py-2 rounded-lg border-none">
+              <h3 class="text-lg font-bold text-slate-900">Revenue Overview</h3>
+              <select class="bg-gray-100 text-slate-900 text-sm px-4 py-2 rounded-lg border-none">
                 <option>Last 30 Days</option>
                 <option>Last 3 Months</option>
                 <option>This Year</option>
@@ -210,8 +210,8 @@
             </div>
           </div>
 
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
-            <h3 class="text-lg font-bold text-white mb-6">Top Performing Cinemas</h3>
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-6">Top Performing Cinemas</h3>
             <div style="height: 300px">
               <canvas id="cinemaChart"></canvas>
             </div>
@@ -222,9 +222,9 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
           
           <!-- Pending Payouts -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
             <div class="flex items-center justify-between mb-6">
-              <h3 class="text-lg font-bold text-white">Pending Payouts</h3>
+              <h3 class="text-lg font-bold text-slate-900">Pending Payouts</h3>
               <a href="AppPendingPayout.html" class="text-rose-400 hover:text-rose-300 text-sm font-semibold">View All →</a>
             </div>
             
@@ -234,7 +234,7 @@
                   PV
                 </div>
                 <div class="flex-1">
-                  <p class="font-semibold text-white">PVR Cinemas</p>
+                  <p class="font-semibold text-slate-900">PVR Cinemas</p>
                   <p class="text-xs text-gray-400">Pending since: Nov 15, 2025</p>
                 </div>
                 <div class="text-right">
@@ -248,7 +248,7 @@
                   IN
                 </div>
                 <div class="flex-1">
-                  <p class="font-semibold text-white">INOX</p>
+                  <p class="font-semibold text-slate-900">INOX</p>
                   <p class="text-xs text-gray-400">Pending since: Nov 14, 2025</p>
                 </div>
                 <div class="text-right">
@@ -262,7 +262,7 @@
                   CP
                 </div>
                 <div class="flex-1">
-                  <p class="font-semibold text-white">Cinepolis</p>
+                  <p class="font-semibold text-slate-900">Cinepolis</p>
                   <p class="text-xs text-gray-400">Pending since: Nov 13, 2025</p>
                 </div>
                 <div class="text-right">
@@ -274,9 +274,9 @@
           </div>
 
           <!-- New Cinema Requests -->
-          <div class="bg-slate-800 rounded-xl p-6 border border-slate-700">
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
             <div class="flex items-center justify-between mb-6">
-              <h3 class="text-lg font-bold text-white">New Cinema Requests</h3>
+              <h3 class="text-lg font-bold text-slate-900">New Cinema Requests</h3>
               <span class="bg-rose-500/20 text-rose-400 px-3 py-1 rounded-full text-xs font-semibold">5 Pending</span>
             </div>
             
@@ -284,7 +284,7 @@
               <div class="p-4 bg-slate-700/50 rounded-lg">
                 <div class="flex items-start justify-between mb-3">
                   <div>
-                    <p class="font-semibold text-white">Maharaja Cinemas</p>
+                    <p class="font-semibold text-slate-900">Maharaja Cinemas</p>
                     <p class="text-xs text-gray-400">Bhubaneswar, Odisha</p>
                   </div>
                   <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">New</span>
@@ -302,7 +302,7 @@
               <div class="p-4 bg-slate-700/50 rounded-lg">
                 <div class="flex items-start justify-between mb-3">
                   <div>
-                    <p class="font-semibold text-white">Elite Cinema Hall</p>
+                    <p class="font-semibold text-slate-900">Elite Cinema Hall</p>
                     <p class="text-xs text-gray-400">Pune, Maharashtra</p>
                   </div>
                   <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-1 rounded">New</span>
@@ -356,7 +356,7 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(15, 23, 42, 0.06)' } },
           x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
         }
       }
@@ -379,7 +379,7 @@
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
-          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(255, 255, 255, 0.1)' } },
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(15, 23, 42, 0.06)' } },
           x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
         }
       }
