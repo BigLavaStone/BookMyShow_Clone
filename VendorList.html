@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List Your Show - BookMyShow</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Tailwind CDN-->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!--Fav Icon-->
+  <link rel="icon" href="https://assets-in.bmscdn.com/webin/common/favicon.ico" type="image/x-icon">
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .float-animation {
+      animation: float 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+
+<body class="bg-blue-50 text-slate-800">
+
+  <!-- Primary Header -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 grid grid-cols-1 md:grid-cols-[auto_1fr_auto_auto] items-center gap-4">
+      <a href="index.html" class="text-3xl font-bold text-gray-500 whitespace-nowrap font-[Outfit]">
+        BookMy<span class="text-rose-500">Show</span>
+      </a>
+
+      <div class="relative w-full">
+        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"><i class="fa fa-search"></i></span>
+        <input type="text" placeholder="Search for Movies, Events, Plays, Sports and Activities"
+          class="w-full rounded-md border border-gray-300 pl-10 pr-4 py-2 bg-blue-50 focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out text-sm">
+      </div>
+
+      <select
+        class="rounded-md border border-gray-300 bg-blue-50 text-slate-800 px-3 py-2 pr-6 pl-3 text-sm cursor-pointer focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out appearance-none bg-[url('data:image/svg+xml,%3Csvg%20fill%3D%22%23666%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E')] 
+         bg-no-repeat bg-[length:1.5rem_1.5rem] bg-right bg-right-10">
+        <option>Bhubaneswar</option>
+        <option>Bengaluru</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Chennai</option>
+      </select>
+
+      <a href="Profile.html"
+        class="bg-rose-500 text-white font-semibold rounded-md px-4 py-2 text-sm hover:bg-rose-600 whitespace-nowrap hidden md:inline-block">
+        My Profile
+      </a>
+    </div>
+  </header>
+
+  <!-- Secondary Header -->
+  <div class="bg-slate-800 text-blue-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+      <nav class="flex space-x-8 overflow-x-auto py-3 text-md font-semibold font-[Outfit]">
+        <a href="MovieList.html" class="hover:text-rose-400 whitespace-nowrap">Movies</a>
+        <a href="VendorList.html" class="hover:text-rose-400 whitespace-nowrap">ListYourShow</a>
+        <a href="AboutUs.html" class="hover:text-rose-400 whitespace-nowrap">About Us</a>
+        <a href="AdminLogin.html" class="hover:text-rose-400 whitespace-nowrap">Admin Panel</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero-gradient text-white py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h1 class="text-5xl font-bold mb-6 leading-tight">Partner With Us To Bring Your Events To Life</h1>
+          <p class="text-xl mb-8 text-blue-100">From concerts and workshops to sports events and exhibitions - we help you reach millions of entertainment seekers across India.</p>
+          <button onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'})"
+            class="bg-rose-500 hover:bg-rose-600 text-white font-bold px-8 py-4 rounded-lg text-lg shadow-lg transition-all transform hover:scale-105">
+            <i class="fa fa-rocket mr-2"></i>List Your Show Now
+          </button>
+        </div>
+        <div class="hidden lg:block">
+          <div class="float-animation">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+              <div class="text-center mb-6">
+                <div class="text-6xl mb-4">🎭</div>
+                <h3 class="text-2xl font-bold">Join 50,000+ Event Organizers</h3>
+              </div>
+              <div class="grid grid-cols-2 gap-4 text-center">
+                <div class="bg-white/10 rounded-lg p-4">
+                  <div class="text-3xl font-bold">10M+</div>
+                  <div class="text-sm">Tickets Sold</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-4">
+                  <div class="text-3xl font-bold">200+</div>
+                  <div class="text-sm">Cities</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Can You Host Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">What Can You Host?</h2>
+        <p class="text-gray-600 text-lg">As the premier entertainment platform, BookMyShow provides end-to-end solutions for your events</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <!-- Event Type Card 1 -->
+        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer">
+          <div class="text-5xl mb-4">🎤</div>
+          <h3 class="font-bold text-slate-800">Concerts</h3>
+          <p class="text-xs text-gray-600 mt-2">Live music & performances</p>
+        </div>
+
+        <!-- Event Type Card 2 -->
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer">
+          <div class="text-5xl mb-4">🎭</div>
+          <h3 class="font-bold text-slate-800">Theatre</h3>
+          <p class="text-xs text-gray-600 mt-2">Plays & drama shows</p>
+        </div>
+
+        <!-- Event Type Card 3 -->
+        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer">
+          <div class="text-5xl mb-4">⚽</div>
+          <h3 class="font-bold text-slate-800">Sports</h3>
+          <p class="text-xs text-gray-600 mt-2">Matches & tournaments</p>
+        </div>
+
+        <!-- Event Type Card 4 -->
+        <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer">
+          <div class="text-5xl mb-4">💼</div>
+          <h3 class="font-bold text-slate-800">Conferences</h3>
+          <p class="text-xs text-gray-600 mt-2">Business events & summits</p>
+        </div>
+
+        <!-- Event Type Card 5 -->
+        <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer">
+          <div class="text-5xl mb-4">🎨</div>
+          <h3 class="font-bold text-slate-800">Workshops</h3>
+          <p class="text-xs text-gray-600 mt-2">Learning & experiences</p>
+        </div>
+
+        <!-- Event Type Card 6 -->
+        <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl p-6 text-center hover:shadow-lg transition-all cursor-pointer">
+          <div class="text-5xl mb-4">🎉</div>
+          <h3 class="font-bold text-slate-800">Parties</h3>
+          <p class="text-xs text-gray-600 mt-2">Celebrations & gatherings</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services We Offer Section -->
+  <section class="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">What Services Do We Offer?</h2>
+        <p class="text-gray-600 text-lg">Comprehensive solutions to make your event a grand success</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service Card 1 -->
+        <div class="service-card bg-white rounded-xl p-6 shadow-md">
+          <div class="text-4xl mb-4">📱</div>
+          <h3 class="text-xl font-bold mb-3">Online Sales & Marketing</h3>
+          <p class="text-gray-600 mb-4">Reach millions of users through our platform with targeted marketing campaigns and seamless online ticket sales.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Wide audience reach</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Digital marketing support</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Social media promotion</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 2 -->
+        <div class="service-card bg-white rounded-xl p-6 shadow-md">
+          <div class="text-4xl mb-4">💳</div>
+          <h3 class="text-xl font-bold mb-3">Flexible Pricing</h3>
+          <p class="text-gray-600 mb-4">Set up custom pricing tiers, early bird offers, and promotional discounts to maximize your revenue.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Dynamic pricing options</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Discount management</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Group booking deals</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 3 -->
+        <div class="service-card bg-white rounded-xl p-6 shadow-md">
+          <div class="text-4xl mb-4">🎫</div>
+          <h3 class="text-xl font-bold mb-3">Gate Entry Management</h3>
+          <p class="text-gray-600 mb-4">Streamline entry with our QR code scanning app and on-ground support team for hassle-free gate management.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li><i class="fa fa-check text-green-500 mr-2"></i>QR code scanning</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Real-time validation</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>On-ground support</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 4 -->
+        <div class="service-card bg-white rounded-xl p-6 shadow-md">
+          <div class="text-4xl mb-4">📊</div>
+          <h3 class="text-xl font-bold mb-3">Analytics & Insights</h3>
+          <p class="text-gray-600 mb-4">Get detailed reports on ticket sales, audience demographics, and revenue trends to plan better events.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Real-time dashboards</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Sales reports</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Audience insights</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 5 -->
+        <div class="service-card bg-white rounded-xl p-6 shadow-md">
+          <div class="text-4xl mb-4">🛡️</div>
+          <h3 class="text-xl font-bold mb-3">Secure Payment Gateway</h3>
+          <p class="text-gray-600 mb-4">Process payments securely with multiple payment options and instant settlement of funds.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Multiple payment modes</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Bank-grade security</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Quick settlements</li>
+          </ul>
+        </div>
+
+        <!-- Service Card 6 -->
+        <div class="service-card bg-white rounded-xl p-6 shadow-md">
+          <div class="text-4xl mb-4">🎪</div>
+          <h3 class="text-xl font-bold mb-3">Event Management Tools</h3>
+          <p class="text-gray-600 mb-4">Manage your entire event from creation to completion with our comprehensive event management platform.</p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Easy event setup</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Inventory management</li>
+            <li><i class="fa fa-check text-green-500 mr-2"></i>Customer support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Showcase -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <h2 class="text-4xl font-bold mb-6">Mobile Ticketing Made Simple</h2>
+          <p class="text-lg text-gray-600 mb-6">Enable your audience to skip the box office queue and enter directly with mobile tickets. Our M-ticket feature provides a seamless experience for your attendees.</p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="bg-rose-100 rounded-full p-3 flex-shrink-0">
+                <i class="fa fa-mobile text-rose-500 text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Instant Delivery</h3>
+                <p class="text-gray-600">Tickets delivered instantly to mobile devices</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-blue-100 rounded-full p-3 flex-shrink-0">
+                <i class="fa fa-qrcode text-blue-500 text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">QR Code Scanning</h3>
+                <p class="text-gray-600">Quick entry with secure QR code validation</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="bg-green-100 rounded-full p-3 flex-shrink-0">
+                <i class="fa fa-shield text-green-500 text-2xl"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-1">Secure & Reliable</h3>
+                <p class="text-gray-600">Bank-grade security for all transactions</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-purple-100 to-blue-100 rounded-2xl p-8 lg:p-12 flex items-center justify-center">
+          <div class="text-9xl">📱</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 bg-slate-800 text-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">What Our Partners Say</h2>
+        <p class="text-blue-200 text-lg">Trusted by leading event organizers across the country</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-yellow-400 text-2xl mb-4">
+            <i class="fa fa-quote-left"></i>
+          </div>
+          <p class="text-blue-100 mb-6">"BookMyShow has been instrumental in helping us reach a wider audience. Their platform is user-friendly and their support team is always available to help. Highly recommended!"</p>
+          <div class="flex items-center gap-4">
+            <div class="bg-purple-500 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">
+              RS
+            </div>
+            <div>
+              <div class="font-bold">Rajesh Sharma</div>
+              <div class="text-sm text-blue-300">Event Organizer, Mumbai</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-yellow-400 text-2xl mb-4">
+            <i class="fa fa-quote-left"></i>
+          </div>
+          <p class="text-blue-100 mb-6">"The analytics and insights provided by BookMyShow have helped us understand our audience better and plan our events more effectively. A game changer for event management!"</p>
+          <div class="flex items-center gap-4">
+            <div class="bg-rose-500 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">
+              PK
+            </div>
+            <div>
+              <div class="font-bold">Priya Krishnan</div>
+              <div class="text-sm text-blue-300">Theatre Director, Bangalore</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
+          <div class="text-yellow-400 text-2xl mb-4">
+            <i class="fa fa-quote-left"></i>
+          </div>
+          <p class="text-blue-100 mb-6">"We've been partnering with BookMyShow for over 5 years. Their technology and customer service make event ticketing seamless for both us and our attendees."</p>
+          <div class="flex items-center gap-4">
+            <div class="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">
+              AM
+            </div>
+            <div>
+              <div class="font-bold">Anil Mehta</div>
+              <div class="text-sm text-blue-300">Sports Club Manager, Delhi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact-form" class="py-16 bg-gradient-to-br from-purple-50 to-blue-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl font-bold mb-4">Ready To Get Started?</h2>
+          <p class="text-gray-600 text-lg">Fill out the form below and our team will get in touch with you within 24 hours</p>
+        </div>
+
+        <form class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
+              <input type="text" required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all"
+                placeholder="John Doe">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+              <input type="email" required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all"
+                placeholder="john@example.com">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+              <input type="tel" required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all"
+                placeholder="+91 98765 43210">
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-2">City *</label>
+              <select required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all">
+                <option value="">Select City</option>
+                <option>Bhubaneswar</option>
+                <option>Bengaluru</option>
+                <option>Mumbai</option>
+                <option>Delhi</option>
+                <option>Chennai</option>
+                <option>Hyderabad</option>
+                <option>Pune</option>
+                <option>Kolkata</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Event Type *</label>
+            <select required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all">
+              <option value="">Select Event Type</option>
+              <option>Concert/Live Music</option>
+              <option>Theatre/Plays</option>
+              <option>Sports Event</option>
+              <option>Conference/Summit</option>
+              <option>Workshop/Training</option>
+              <option>Exhibition/Expo</option>
+              <option>Party/Celebration</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Tell Us About Your Event</label>
+            <textarea rows="4"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-400 focus:border-transparent outline-none transition-all"
+              placeholder="Provide details about your event, expected audience size, date, venue, etc."></textarea>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="terms" required class="mt-1 w-4 h-4 text-rose-500 rounded focus:ring-rose-400">
+            <label for="terms" class="text-sm text-gray-600">
+              I agree to the <a href="#" class="text-rose-500 hover:underline">Terms & Conditions</a> and <a href="#" class="text-rose-500 hover:underline">Privacy Policy</a>
+            </label>
+          </div>
+
+          <button type="submit"
+            class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-4 rounded-lg text-lg shadow-lg transition-all transform hover:scale-[1.02]">
+            <i class="fa fa-paper-plane mr-2"></i>Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">Why Partner With BookMyShow?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-purple-100 to-purple-200 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <i class="fa fa-users text-purple-600 text-3xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Massive Reach</h3>
+          <p class="text-gray-600">Access to 50M+ active users across India</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <i class="fa fa-shield text-blue-600 text-3xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Trusted Platform</h3>
+          <p class="text-gray-600">15+ years of industry leadership</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <i class="fa fa-line-chart text-green-600 text-3xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">Data Insights</h3>
+          <p class="text-gray-600">Real-time analytics and reporting</p>
+        </div>
+
+        <div class="text-center">
+          <div class="bg-gradient-to-br from-rose-100 to-rose-200 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+            <i class="fa fa-headphones text-rose-600 text-3xl"></i>
+          </div>
+          <h3 class="font-bold text-xl mb-2">24/7 Support</h3>
+          <p class="text-gray-600">Dedicated support team always available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-neutral-800 text-neutral-300 py-12">
+    <div class="max-w-7xl mx-auto px-6 text-center border-b border-neutral-600 pb-8">
+      <span class="text-4xl font-bold text-neutral-100 font-[Outfit]">BookMy<span
+          class="text-rose-500">Show</span></span>
+
+      <div class="flex justify-center gap-4 mt-6 flex-wrap">
+        <a href="https://www.facebook.com/BookMyShowIN"
+          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Facebook</a>
+        <a href="https://www.instagram.com/bookmyshowin/"
+          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Instagram</a>
+        <a href="https://twitter.com/BookMyShow/"
+          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">X
+          (Twitter)</a>
+        <a href="https://www.pinterest.com/bookmyshow/"
+          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Pinterest</a>
+        <a href="https://www.youtube.com/user/BookMyShow/featured"
+          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">YouTube</a>
+        <a href="https://www.linkedin.com/company/bookmyshow/"
+          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">LinkedIn</a>
+      </div>
+    </div>
+
+    <p class="text-xs text-neutral-500 mt-6 max-w-4xl mx-auto px-6 leading-relaxed text-center">
+      The content and images used on this site are copyright protected and copyrights vest with the respective owners.
+      Unauthorized use is prohibited and punishable by law. <br>
+      Copyright 2025 by Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+    </p>
+  </footer>
+
+  <script>
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Form submission handler
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your interest! Our team will contact you shortly.');
+      this.reset();
+    });
+  </script>
+
+</body>
+
+</html>

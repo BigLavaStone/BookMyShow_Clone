@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pending Payouts - App Admin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); color:#0f172a; }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+    .sidebar { background: #fff; border-right: 1px solid rgba(15,23,42,0.06); box-shadow: none; }
+    .menu-item { transition: all 0.3s ease; border-left: 3px solid transparent; }
+    .menu-item:hover { background: rgba(99, 102, 241, 0.1); border-left-color: #6366f1; transform: translateX(5px); }
+    .menu-item.active { background: rgba(99, 102, 241, 0.15); border-left-color: #6366f1; }
+    .submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .submenu.open { max-height: 500px; }
+    .submenu a.active { background: rgba(99, 102, 241, 0.2); color: white; }
+    .payout-card { transition: all 0.3s ease; }
+    .payout-card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(236, 72, 153, 0.2); }
+  </style>
+</head>
+  <body class="text-gray-900">
+
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar w-64 flex-shrink-0 overflow-y-auto">
+      <div class="p-6">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center">
+            <i class="fas fa-crown text-white text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">BookMyShow</h2>
+            <p class="text-xs text-gray-400">App Admin</p>
+          </div>
+        </div>
+        
+        <nav class="space-y-2">
+          <a href="AppAdminDashboard.html" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg">
+            <i class="fas fa-chart-line w-5"></i><span>Dashboard</span>
+          </a>
+          
+          <div>
+            <button onclick="toggleSubmenu('masterdata')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+              <i class="fas fa-database w-5"></i><span class="flex-1 text-left">Master Data</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="masterdata-arrow"></i>
+            </button>
+            <div id="masterdata-submenu" class="submenu ml-8 mt-1 space-y-1">
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Facility</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Format</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Language</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Genre</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Rating</a>
+            </div>
+          </div>
+          
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+            <i class="fas fa-film w-5"></i><span>Movies</span>
+          </a>
+          
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+            <i class="fas fa-building w-5"></i><span>Cinemas</span>
+          </a>
+          
+          <div>
+            <button onclick="toggleSubmenu('payouts')" class="menu-item active flex items-center gap-3 px-4 py-3 text-slate-900 rounded-lg w-full">
+              <i class="fas fa-money-bill-transfer w-5"></i><span class="flex-1 text-left">Payouts</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="payouts-arrow" style="transform: rotate(180deg)"></i>
+            </button>
+            <div id="payouts-submenu" class="submenu open ml-8 mt-1 space-y-1">
+              <a href="AppPendingPayout.html" class="active block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Pending Payout</a>
+              <a href="AppSendPayout.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Send Payout</a>
+              <a href="AppPayoutHistory.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Payout History</a>
+            </div>
+          </div>
+          
+          <div>
+            <button onclick="toggleSubmenu('reports')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+              <i class="fas fa-chart-bar w-5"></i><span class="flex-1 text-left">Reports</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="reports-arrow"></i>
+            </button>
+            <div id="reports-submenu" class="submenu ml-8 mt-1 space-y-1">
+              <a href="AppPlatformRevenue.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Platform Revenue</a>
+              <a href="AppPlatformPayouts.html" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Platform Payouts</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      
+      <div class="p-6 border-t border-gray-700">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-orange-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold">AD</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-slate-900">Admin User</p>
+            <p class="text-xs text-gray-400">Super Admin</p>
+          </div>
+          <a href="../index.html" class="text-gray-500 hover:text-slate-900"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto bg-gray-50">
+      <header class="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-10">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-2xl font-bold text-slate-900">Pending Payouts</h1>
+            <p class="text-sm text-gray-500">Review and process pending cinema payouts</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="flex items-center gap-3 px-4 py-2 bg-orange-100 border border-orange-200 rounded-lg">
+              <i class="fas fa-clock text-orange-400"></i>
+              <span class="text-sm text-amber-600 font-semibold">12 Pending</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="p-8">
+        
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-gradient-to-br from-orange-500 to-red-600 p-6 rounded-xl text-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-exclamation-triangle text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">₹24.8L</h3>
+            <p class="text-white/80 text-sm">Total Pending Amount</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-yellow-500 to-orange-600 p-6 rounded-xl text-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-building text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">12</h3>
+            <p class="text-white/80 text-sm">Pending Requests</p>
+          </div>
+
+          <div class="bg-gradient-to-br from-red-500 to-pink-600 p-6 rounded-xl text-white">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-clock text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">8.4 days</h3>
+            <p class="text-white/80 text-sm">Avg Pending Time</p>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="bg-gray-50 rounded-xl p-4 border border-gray-200 mb-6 flex items-center gap-4 flex-wrap">
+          <input type="text" placeholder="Search cinema..." class="bg-white text-gray-900 px-4 py-2 rounded-lg flex-1 min-w-[200px] border-none">
+          <select class="bg-white text-slate-900 px-4 py-2 rounded-lg border-none">
+            <option>All Ranges</option>
+            <option>Under ₹1L</option>
+            <option>₹1L - ₹5L</option>
+            <option>Above ₹5L</option>
+          </select>
+          <select class="bg-white text-slate-900 px-4 py-2 rounded-lg border-none">
+            <option>Sort: Oldest First</option>
+            <option>Sort: Newest First</option>
+            <option>Sort: Highest Amount</option>
+            <option>Sort: Lowest Amount</option>
+          </select>
+        </div>
+
+        <!-- Payout Requests -->
+        <div class="space-y-4">
+          
+          <div class="payout-card bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                PV
+              </div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">PVR Cinemas - Saket</h3>
+                    <p class="text-sm text-gray-400">Cinema ID: #C10234 • New Delhi</p>
+                  </div>
+                  <span class="bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-semibold">
+                    <i class="fas fa-clock mr-1"></i>10 days pending
+                  </span>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="bg-gray-50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 mb-1">Request Amount</p>
+                    <p class="text-lg font-bold text-slate-900">₹3.24L</p>
+                  </div>
+                  <div class="bg-gray-50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 mb-1">Period</p>
+                    <p class="text-sm font-semibold text-slate-900">Nov 1 - Nov 15</p>
+                  </div>
+                  <div class="bg-gray-50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 mb-1">Requested On</p>
+                    <p class="text-sm font-semibold text-slate-900">Nov 12, 2025</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-green-600 hover:bg-green-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-check-circle mr-2"></i>Approve & Process
+                  </button>
+                  <button class="px-6 bg-slate-700 hover:bg-slate-600 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                  </button>
+                  <button class="px-6 bg-red-600 hover:bg-red-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-times-circle mr-2"></i>Reject
+                  </button>
+                </div>
+                      <h3 class="text-3xl font-bold mb-1">₹24.8L</h3>
+                      <p class="text-white/80 text-sm">Total Pending Amount</p>
+            </div>
+          </div>
+
+          <div class="payout-card bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                IN
+              </div>
+                      <h3 class="text-3xl font-bold mb-1">12</h3>
+                      <p class="text-gray-600 text-sm">Pending Requests</p>
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">INOX Megaplex</h3>
+                    <p class="text-sm text-gray-400">Cinema ID: #C10187 • Mumbai</p>
+                  </div>
+                  <span class="bg-orange-500/20 text-orange-400 px-3 py-1 rounded-full text-xs font-semibold">
+                    <i class="fas fa-clock mr-1"></i>7 days pending
+                  </span>
+                      <h3 class="text-3xl font-bold mb-1">8.4 days</h3>
+                      <p class="text-white/80 text-sm">Avg Pending Time</p>
+                
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="bg-gray-50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 mb-1">Request Amount</p>
+                    <p class="text-lg font-bold text-slate-900">₹5.82L</p>
+                    <input type="text" placeholder="Search cinema..." class="bg-white text-gray-900 px-4 py-2 rounded-lg flex-1 min-w-[200px] border-none">
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-400 mb-1">Period</p>
+                    <p class="text-sm font-semibold text-slate-900">Oct 16 - Oct 31</p>
+                  </div>
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-400 mb-1">Requested On</p>
+                    <p class="text-sm font-semibold text-slate-900">Nov 15, 2025</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-green-600 hover:bg-green-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-check-circle mr-2"></i>Approve & Process
+                  </button>
+                  <button class="px-6 bg-slate-700 hover:bg-slate-600 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                  </button>
+                  <button class="px-6 bg-red-600 hover:bg-red-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-times-circle mr-2"></i>Reject
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payout-card bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                CP
+              </div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">Cinepolis Nexus</h3>
+                    <p class="text-sm text-gray-400">Cinema ID: #C10342 • Bangalore</p>
+                  </div>
+                  <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs font-semibold">
+                    <i class="fas fa-clock mr-1"></i>5 days pending
+                  </span>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 mb-1">Request Amount</p>
+                    <p class="text-lg font-bold text-slate-900">₹4.15L</p>
+                  </div>
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-400 mb-1">Period</p>
+                    <p class="text-sm font-semibold text-slate-900">Nov 1 - Nov 15</p>
+                  </div>
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-400 mb-1">Requested On</p>
+                    <p class="text-sm font-semibold text-slate-900">Nov 17, 2025</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-green-600 hover:bg-green-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-check-circle mr-2"></i>Approve & Process
+                  </button>
+                  <button class="px-6 bg-slate-700 hover:bg-slate-600 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                  </button>
+                  <button class="px-6 bg-red-600 hover:bg-red-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-times-circle mr-2"></i>Reject
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="payout-card bg-white rounded-xl p-6 border border-gray-200">
+            <div class="flex items-start gap-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center text-white text-2xl font-bold flex-shrink-0">
+                MH
+              </div>
+              <div class="flex-1">
+                <div class="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-1">Maharaja Cinemas</h3>
+                    <p class="text-sm text-gray-400">Cinema ID: #C10589 • Chennai</p>
+                  </div>
+                  <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs font-semibold">
+                    <i class="fas fa-clock mr-1"></i>4 days pending
+                  </span>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mb-4">
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-500 mb-1">Request Amount</p>
+                    <p class="text-lg font-bold text-slate-900">₹2.68L</p>
+                  </div>
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-400 mb-1">Period</p>
+                    <p class="text-sm font-semibold text-slate-900">Nov 1 - Nov 15</p>
+                  </div>
+                  <div class="bg-slate-700/50 p-3 rounded-lg">
+                    <p class="text-xs text-gray-400 mb-1">Requested On</p>
+                    <p class="text-sm font-semibold text-slate-900">Nov 18, 2025</p>
+                  </div>
+                </div>
+
+                <div class="flex gap-3">
+                  <button class="flex-1 bg-green-600 hover:bg-green-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-check-circle mr-2"></i>Approve & Process
+                  </button>
+                  <button class="px-6 bg-slate-700 hover:bg-slate-600 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-eye mr-2"></i>View Details
+                  </button>
+                  <button class="px-6 bg-red-600 hover:bg-red-700 py-3 rounded-lg text-white font-semibold transition-colors">
+                    <i class="fas fa-times-circle mr-2"></i>Reject
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleSubmenu(menu) {
+      const submenu = document.getElementById(menu + '-submenu');
+      const arrow = document.getElementById(menu + '-arrow');
+      submenu.classList.toggle('open');
+      arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+  </script>
+
+</body>
+</html>

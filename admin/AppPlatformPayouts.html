@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platform Payouts Report - App Admin</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <style>
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg,#ffffff 0%, #f8fafc 100%); color:#0f172a; }
+    h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; }
+    .sidebar { background: #fff; border-right: 1px solid rgba(15,23,42,0.06); box-shadow:none; }
+    .menu-item { transition: all 0.3s ease; border-left: 3px solid transparent; }
+    .menu-item:hover { background: rgba(99, 102, 241, 0.1); border-left-color: #6366f1; transform: translateX(5px); }
+    .menu-item.active { background: rgba(99, 102, 241, 0.15); border-left-color: #6366f1; }
+    .submenu { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .submenu.open { max-height: 500px; }
+    .submenu a.active { background: rgba(99, 102, 241, 0.2); color: white; }
+    .stat-card { transition: all 0.3s ease; }
+    .stat-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3); }
+  </style>
+</head>
+  <body class="text-gray-900">
+
+  <div class="flex h-screen overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar w-64 flex-shrink-0 overflow-y-auto">
+      <div class="p-6">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-pink-600 rounded-lg flex items-center justify-center">
+            <i class="fas fa-crown text-white text-xl"></i>
+          </div>
+          <div>
+            <h2 class="text-xl font-bold text-slate-900">BookMyShow</h2>
+            <p class="text-xs text-gray-400">App Admin</p>
+          </div>
+        </div>
+        
+        <nav class="space-y-2">
+          <a href="AppAdminDashboard.html" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-600 rounded-lg">
+            <i class="fas fa-chart-line w-5"></i><span>Dashboard</span>
+          </a>
+          
+          <div>
+            <button onclick="toggleSubmenu('masterdata')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+              <i class="fas fa-database w-5"></i><span class="flex-1 text-left">Master Data</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="masterdata-arrow"></i>
+            </button>
+            <div id="masterdata-submenu" class="submenu ml-8 mt-1 space-y-1">
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Facility</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Format</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Language</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Genre</a>
+              <a href="#" class="block px-4 py-2 text-gray-600 hover:text-slate-900 rounded">Rating</a>
+            </div>
+          </div>
+          
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+            <i class="fas fa-film w-5"></i><span>Movies</span>
+          </a>
+          
+          <a href="#" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg">
+            <i class="fas fa-building w-5"></i><span>Cinemas</span>
+          </a>
+          
+          <div>
+            <button onclick="toggleSubmenu('payouts')" class="menu-item flex items-center gap-3 px-4 py-3 text-gray-300 rounded-lg w-full">
+              <i class="fas fa-money-bill-transfer w-5"></i><span class="flex-1 text-left">Payouts</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="payouts-arrow"></i>
+            </button>
+            <div id="payouts-submenu" class="submenu ml-8 mt-1 space-y-1">
+              <a href="AppPendingPayout.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Pending Payout</a>
+              <a href="AppSendPayout.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Send Payout</a>
+              <a href="AppPayoutHistory.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Payout History</a>
+            </div>
+          </div>
+          
+          <div>
+            <button onclick="toggleSubmenu('reports')" class="menu-item active flex items-center gap-3 px-4 py-3 text-slate-900 rounded-lg w-full">
+              <i class="fas fa-chart-bar w-5"></i><span class="flex-1 text-left">Reports</span>
+              <i class="fas fa-chevron-down text-xs transition-transform" id="reports-arrow" style="transform: rotate(180deg)"></i>
+            </button>
+            <div id="reports-submenu" class="submenu open ml-8 mt-1 space-y-1">
+              <a href="AppPlatformRevenue.html" class="block px-4 py-2 text-gray-400 hover:text-white rounded">Platform Revenue</a>
+              <a href="AppPlatformPayouts.html" class="active block px-4 py-2 text-gray-400 hover:text-white rounded">Platform Payouts</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      
+            <div class="p-6 border-t border-gray-200">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-rose-500 to-orange-600 rounded-full flex items-center justify-center">
+            <span class="text-white font-bold">AD</span>
+          </div>
+          <div class="flex-1">
+            <p class="text-sm font-semibold text-slate-900">Admin User</p>
+            <p class="text-xs text-gray-400">Super Admin</p>
+          </div>
+          <a href="../index.html" class="text-gray-400 hover:text-white"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 overflow-y-auto bg-gray-50">
+      <header class="bg-white border-b border-gray-200 px-8 py-4 sticky top-0 z-10">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-2xl font-bold text-slate-900">Platform Payouts Report</h1>
+            <p class="text-sm text-gray-500">Monitor payout distribution to cinema partners</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <select class="bg-gray-100 text-slate-900 px-4 py-2 rounded-lg border-none">
+              <option>Last 30 Days</option>
+              <option>Last 3 Months</option>
+              <option>This Year</option>
+            </select>
+            <button class="px-4 py-2 bg-rose-600 hover:bg-rose-700 rounded-lg text-white font-semibold transition-colors">
+              <i class="fas fa-download mr-2"></i>Export
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="p-8">
+        
+        <!-- Payout Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-check-double text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">₹142.6L</h3>
+            <p class="text-gray-600 text-sm">Total Paid Out (30 Days)</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i class="fas fa-arrow-up"></i>
+              <span>24% from last period</span>
+            </div>
+          </div>
+
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-clock text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">₹24.8L</h3>
+            <p class="text-gray-600 text-sm">Pending Payouts</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <span>12 requests awaiting</span>
+            </div>
+          </div>
+
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-building text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">86</h3>
+            <p class="text-gray-600 text-sm">Cinemas Paid</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <span>Out of 98 active</span>
+            </div>
+          </div>
+
+          <div class="stat-card bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
+                <i class="fas fa-calculator text-2xl"></i>
+              </div>
+            </div>
+            <h3 class="text-3xl font-bold mb-1">₹1.66L</h3>
+            <p class="text-gray-600 text-sm">Avg Payout Amount</p>
+            <div class="mt-3 flex items-center gap-2 text-sm">
+              <i class="fas fa-arrow-up"></i>
+              <span>12% increase</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-6">Payout Trend (Last 30 Days)</h3>
+            <div style="height: 300px">
+              <canvas id="payoutTrendChart"></canvas>
+            </div>
+          </div>
+
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+            <h3 class="text-lg font-bold text-slate-900 mb-6">Payout by Payment Method</h3>
+            <div style="height: 300px">
+              <canvas id="paymentMethodChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Top Cinema Partners (Highest Payouts) -->
+          <div class="bg-white rounded-xl p-6 border border-gray-200 mb-8">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-bold text-slate-900">Top Cinema Partners by Payout Volume</h3>
+            <button class="text-rose-400 hover:text-rose-300 text-sm font-semibold">View All →</button>
+          </div>
+          <div style="height: 300px">
+            <canvas id="topPartnersChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Recent Payouts Timeline -->
+          <div class="bg-white rounded-xl p-6 border border-gray-200">
+          <h3 class="text-lg font-bold text-slate-900 mb-6">Recent Payout Activity</h3>
+          
+          <div class="space-y-4">
+            
+            <div class="relative pl-8 pb-4 border-l-2 border-slate-700">
+              <div class="absolute -left-2 top-0 w-4 h-4 bg-green-500 rounded-full"></div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="font-semibold text-slate-900">PVR Cinemas - Saket</p>
+                  <p class="text-sm text-gray-400 mt-1">Bank Transfer • ₹3,24,000</p>
+                  <p class="text-xs text-gray-500 mt-1">Nov 20, 2025 at 2:45 PM</p>
+                </div>
+                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">Completed</span>
+              </div>
+            </div>
+
+            <div class="relative pl-8 pb-4 border-l-2 border-slate-700">
+              <div class="absolute -left-2 top-0 w-4 h-4 bg-green-500 rounded-full"></div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="font-semibold text-slate-900">INOX Megaplex</p>
+                  <p class="text-sm text-gray-400 mt-1">UPI • ₹5,82,000</p>
+                  <p class="text-xs text-gray-500 mt-1">Nov 18, 2025 at 4:30 PM</p>
+                </div>
+                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">Completed</span>
+              </div>
+            </div>
+
+            <div class="relative pl-8 pb-4 border-l-2 border-slate-700">
+              <div class="absolute -left-2 top-0 w-4 h-4 bg-green-500 rounded-full"></div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="font-semibold text-slate-900">Cinepolis Nexus</p>
+                  <p class="text-sm text-gray-400 mt-1">Bank Transfer • ₹4,15,000</p>
+                  <p class="text-xs text-gray-500 mt-1">Nov 17, 2025 at 11:20 AM</p>
+                </div>
+                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">Completed</span>
+              </div>
+            </div>
+
+            <div class="relative pl-8 pb-4 border-l-2 border-slate-700">
+              <div class="absolute -left-2 top-0 w-4 h-4 bg-yellow-500 rounded-full animate-pulse"></div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="font-semibold text-slate-900">Maharaja Cinemas</p>
+                  <p class="text-sm text-gray-400 mt-1">Cheque • ₹2,68,000</p>
+                  <p class="text-xs text-gray-500 mt-1">Nov 15, 2025 at 3:15 PM</p>
+                </div>
+                <span class="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs font-semibold">Processing</span>
+              </div>
+            </div>
+
+            <div class="relative pl-8">
+              <div class="absolute -left-2 top-0 w-4 h-4 bg-green-500 rounded-full"></div>
+              <div class="flex items-start justify-between">
+                <div>
+                  <p class="font-semibold text-slate-900">Carnival Cinemas</p>
+                  <p class="text-sm text-gray-400 mt-1">Bank Transfer • ₹3,91,000</p>
+                  <p class="text-xs text-gray-500 mt-1">Nov 12, 2025 at 9:00 AM</p>
+                </div>
+                <span class="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-xs font-semibold">Completed</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script>
+    function toggleSubmenu(menu) {
+      const submenu = document.getElementById(menu + '-submenu');
+      const arrow = document.getElementById(menu + '-arrow');
+      submenu.classList.toggle('open');
+      arrow.style.transform = submenu.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    const payoutTrendCtx = document.getElementById('payoutTrendChart').getContext('2d');
+    new Chart(payoutTrendCtx, {
+      type: 'line',
+      data: {
+        labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+        datasets: [{
+          label: 'Payouts',
+          data: [3200000, 3800000, 4100000, 3500000],
+          borderColor: '#10b981',
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          tension: 0.4,
+          fill: true,
+          borderWidth: 3
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(15, 23, 42, 0.06)' } },
+          x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
+        }
+      }
+    });
+
+    const paymentMethodCtx = document.getElementById('paymentMethodChart').getContext('2d');
+    new Chart(paymentMethodCtx, {
+      type: 'doughnut',
+      data: {
+        labels: ['Bank Transfer', 'UPI', 'Cheque'],
+        datasets: [{
+          data: [58, 32, 10],
+          backgroundColor: ['#3b82f6', '#a855f7', '#f59e0b'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { color: '#9ca3af', padding: 20 } } }
+      }
+    });
+
+    const topPartnersCtx = document.getElementById('topPartnersChart').getContext('2d');
+    new Chart(topPartnersCtx, {
+      type: 'bar',
+      data: {
+        labels: ['PVR Saket', 'INOX Mumbai', 'Cinepolis BLR', 'Carnival HYD', 'Maharaja CHN', 'PVR Pune'],
+        datasets: [{
+          label: 'Total Payouts',
+          data: [3240000, 5820000, 4150000, 3910000, 2680000, 2180000],
+          backgroundColor: ['#10b981', '#3b82f6', '#a855f7', '#f59e0b', '#ec4899', '#ef4444'],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          y: { beginAtZero: true, ticks: { color: '#9ca3af' }, grid: { color: 'rgba(15, 23, 42, 0.06)' } },
+          x: { ticks: { color: '#9ca3af' }, grid: { display: false } }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
