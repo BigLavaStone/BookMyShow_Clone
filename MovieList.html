@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Upcoming Hindi Movies</title>
+
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Inter:wght@400;600&display=swap"
     rel="stylesheet">
@@ -30,6 +31,20 @@
     h4 {
       font-family: 'Outfit', sans-serif;
     }
+
+    .filter-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background-color: #f3f3f3;
+      color: #444;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 0.85rem;
+    }
+
+    .filter-pill:hover {
+      background-color: #ffe4e4;
+    }
   </style>
 </head>
 
@@ -48,7 +63,8 @@
           class="w-full rounded-md border border-gray-300 pl-10 pr-4 py-2 bg-blue-50 focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out text-sm">
       </div>
 
-      <select class="rounded-md border border-gray-300 bg-blue-50 text-slate-800 px-3 py-2 pr-6 pl-3 text-sm cursor-pointer focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out appearance-none bg-[url('data:image/svg+xml,%3Csvg%20fill%3D%22%23666%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E')] 
+      <select
+        class="rounded-md border border-gray-300 bg-blue-50 text-slate-800 px-3 py-2 pr-6 pl-3 text-sm cursor-pointer focus:ring-2 focus:ring-rose-400 focus:outline-none transition-all duration-[0.2s] ease-in-out appearance-none bg-[url('data:image/svg+xml,%3Csvg%20fill%3D%22%23666%22%20height%3D%2220%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M7%2010l5%205%205-5z%22/%3E%3C/svg%3E')] 
          bg-no-repeat bg-[length:1.5rem_1.5rem] bg-right bg-right-10">
         <option>Bhubaneswar</option>
         <option>Bengaluru</option>
@@ -79,10 +95,11 @@
   <section class="p-6">
     <div class="flex flex-col md:flex-row">
 
-      <div class="bg-white p-4 rounded-lg shadow-md mb-6 md:mb-0 md:mr-6 w-full md:w-72  h-full  flex flex-col">
+      <!-- SIDEBAR FILTER -->
+      <div class="bg-white p-4 rounded-lg shadow-md mb-6 md:mb-0 md:mr-6 w-full md:w-72 h-full flex flex-col">
         <h2 class="text-lg font-semibold mb-3 text-gray-800">Filters</h2>
 
-
+        <!-- LANGUAGE FILTER -->
         <button id="langDropdownBtn"
           class="w-full flex justify-between items-center px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700">
           <span id="selectedLang">Language</span>
@@ -92,39 +109,68 @@
           </svg>
         </button>
 
-
         <div id="langDropdownMenu"
           class="hidden mt-3 flex flex-wrap gap-2 p-2 border border-gray-200 bg-white rounded-lg shadow-lg">
-          <span class="lang px-3 py-1 bg-red-500 text-white rounded-full cursor-pointer">Hindi</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Tamil</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">English</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Urdu</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Odia</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Bhojpuri</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Punjabi</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Kannada</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Malayalam</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Marathi</span>
-          <span
-            class="lang px-3 py-1 bg-gray-100 text-gray-700 rounded-full cursor-pointer hover:bg-red-100">Telugu</span>
+          <span class="lang filter-pill bg-red-500 text-white">Hindi</span>
+          <span class="lang filter-pill">Tamil</span>
+          <span class="lang filter-pill">English</span>
+          <span class="lang filter-pill">Urdu</span>
+          <span class="lang filter-pill">Odia</span>
+          <span class="lang filter-pill">Punjabi</span>
+          <span class="lang filter-pill">Kannada</span>
+          <span class="lang filter-pill">Malayalam</span>
+          <span class="lang filter-pill">Telugu</span>
+        </div>
+
+        <!-- GENRE FILTER -->
+        <button id="genreDropdownBtn"
+          class="mt-4 w-full flex justify-between items-center px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700">
+          <span id="selectedGenre">Genre</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform" id="dropdownIcon2" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <div id="genreDropdownMenu"
+          class="hidden mt-3 flex flex-wrap gap-2 p-2 border border-gray-200 bg-white rounded-lg shadow-lg">
+          <span class="genre filter-pill bg-red-500 text-white">Action</span>
+          <span class="genre filter-pill">Adventure</span>
+          <span class="genre filter-pill">Comedy</span>
+          <span class="genre filter-pill">Drama</span>
+          <span class="genre filter-pill">Fantasy</span>
+          <span class="genre filter-pill">Romance</span>
+          <span class="genre filter-pill">Thriller</span>
+          <span class="genre filter-pill">Horror</span>
+        </div>
+
+        <!-- FORMAT FILTER -->
+        <button id="formatDropdownBtn"
+          class="mt-4 w-full flex justify-between items-center px-4 py-2 bg-gray-100 rounded-lg hover:bg-gray-200 text-gray-700">
+          <span id="selectedFormat">Format</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform" id="dropdownIcon3" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <div id="formatDropdownMenu"
+          class="hidden mt-3 flex flex-wrap gap-2 p-2 border border-gray-200 bg-white rounded-lg shadow-lg">
+          <span class="format filter-pill bg-red-500 text-white">2D</span>
+          <span class="format filter-pill">3D</span>
+          <span class="format filter-pill">IMAX</span>
+          <span class="format filter-pill">4DX</span>
         </div>
       </div>
 
-
+      <!-- MOVIE LIST -->
       <div>
         <h1 class="text-2xl font-semibold mb-8 text-center">
           Movies in Bhubaneswar
         </h1>
         <div class="flex flex-wrap gap-6 max-w-6xl mx-auto">
+
+          <!-- Movie 1 -->
           <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
             <a href="MovieDet.html" target="_blank">
               <img
@@ -132,12 +178,12 @@
                 alt="Baahubali" class="w-full h-94 object-cover">
             </a>
             <div class="p-4">
-              <!-- <p class="text-gray-600 text-sm mb-1">31, Oct 2025</p> -->
               <h2 class="text-lg font-semibold mb-1">Baahubali: The Epic</h2>
               <p class="text-gray-600 text-sm">Action / Drama / Fantasy</p>
             </div>
           </div>
 
+          <!-- Movie 2 -->
           <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
             <a href="MovieDet1.html" target="_blank">
               <img
@@ -145,12 +191,12 @@
                 alt="Avatar" class="w-full h-94 object-cover">
             </a>
             <div class="p-4">
-              <!-- <p class="text-gray-600 text-sm mb-1">19, Dec 2025</p> -->
               <h2 class="text-lg font-semibold mb-1">Avatar: Fire and Ash</h2>
               <p class="text-gray-600 text-sm">Action / Adventure / Fantasy</p>
             </div>
           </div>
 
+          <!-- Movie 3 -->
           <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
             <a href="MovieDet2.html" target="_blank">
               <img
@@ -158,20 +204,19 @@
                 alt="Toxic" class="w-full h-94 object-cover">
             </a>
             <div class="p-4">
-              <!-- <p class="text-gray-600 text-sm mb-1">19, Mar 2026</p> -->
               <h2 class="text-lg font-semibold mb-1">Toxic: A Fairy Tale for Grown-ups</h2>
               <p class="text-gray-600 text-sm">Action / Thriller</p>
             </div>
           </div>
 
+          <!-- Movie 4 -->
           <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
             <a href="MovieDet3.html" target="_blank">
               <img
                 src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-OSwgSmFuIDIwMjY%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00383697-ewxeqqnmvj-portrait.jpg"
-                alt="The Raja Saab" class="w-full h-94 object-cover ">
+                alt="The Raja Saab" class="w-full h-94 object-cover">
             </a>
             <div class="p-5">
-              <!-- <p class="text-gray-600 text-sm mb-1">9, Jan 2026</p> -->
               <h2 class="text-lg font-semibold mb-1">The Raja Saab</h2>
               <p class="text-gray-600 text-sm">Comedy / Horror / Romantic</p>
             </div>
@@ -185,66 +230,60 @@
   <!-- Footer -->
   <footer class="bg-neutral-800 text-neutral-300 py-12">
     <div class="max-w-7xl mx-auto px-6 text-center border-b border-neutral-600 pb-8">
-      <span class="text-4xl font-bold text-neutral-100 font-[Outfit]">BookMy<span
-          class="text-rose-500">Show</span></span>
+      <span class="text-4xl font-bold text-neutral-100 font-[Outfit]">BookMy<span class="text-rose-500">Show</span></span>
 
       <div class="flex justify-center gap-4 mt-6 flex-wrap">
-        <a href="https://www.facebook.com/BookMyShowIN"
-          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Facebook</a>
-        <a href="https://www.instagram.com/bookmyshowin/"
-          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Instagram</a>
-        <a href="https://twitter.com/BookMyShow/"
-          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">X
-          (Twitter)</a>
-        <a href="https://www.pinterest.com/bookmyshow/"
-          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Pinterest</a>
-        <a href="https://www.youtube.com/user/BookMyShow/featured"
-          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">YouTube</a>
-        <a href="https://www.linkedin.com/company/bookmyshow/"
-          class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">LinkedIn</a>
+        <a href="#" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Facebook</a>
+        <a href="#" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Instagram</a>
+        <a href="#" class="border border-neutral-600 px-3 py-1 rounded text-sm hover:text-rose-400 hover:border-rose-400 transition">Twitter</a>
       </div>
     </div>
 
     <p class="text-xs text-neutral-500 mt-6 max-w-4xl mx-auto px-6 leading-relaxed text-center">
       The content and images used on this site are copyright protected and copyrights vest with the respective owners.
-      Unauthorized use is prohibited and punishable by law. <br>
-      Copyright 2025 by Bigtree Entertainment Pvt. Ltd. All Rights Reserved.
+      Unauthorized use is prohibited and punishable by law.
     </p>
   </footer>
 
+  <!-- FILTER SCRIPT -->
   <script>
-    const dropdownBtn = document.getElementById('langDropdownBtn');
-    const dropdownMenu = document.getElementById('langDropdownMenu');
-    const dropdownIcon = document.getElementById('dropdownIcon');
-    const selectedLang = document.getElementById('selectedLang');
-    const langButtons = document.querySelectorAll('.lang');
+    function setupFilter(dropBtnId, menuId, iconId, itemsClass, selectedOutputId) {
 
+      const btn = document.getElementById(dropBtnId);
+      const menu = document.getElementById(menuId);
+      const icon = document.getElementById(iconId);
+      const items = document.querySelectorAll("." + itemsClass);
+      const selectedOutput = document.getElementById(selectedOutputId);
 
-    dropdownBtn.addEventListener('click', () => {
-      dropdownMenu.classList.toggle('hidden');
-      dropdownIcon.classList.toggle('rotate-180');
-    });
-
-
-    langButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        langButtons.forEach(b => b.classList.remove('bg-red-500', 'text-white'));
-        langButtons.forEach(b => b.classList.add('bg-gray-100', 'text-gray-700'));
-        btn.classList.remove('bg-gray-100', 'text-gray-700');
-        btn.classList.add('bg-red-500', 'text-white');
-        selectedLang.textContent = btn.textContent;
-        dropdownMenu.classList.add('hidden');
-        dropdownIcon.classList.remove('rotate-180');
+        menu.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
       });
-    });
 
+      items.forEach(i => {
+        i.addEventListener("click", () => {
+          items.forEach(x => x.classList.remove("bg-red-500", "text-white"));
+          i.classList.add("bg-red-500", "text-white");
 
-    window.addEventListener('click', (e) => {
-      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-        dropdownMenu.classList.add('hidden');
-        dropdownIcon.classList.remove('rotate-180');
-      }
-    });
+          selectedOutput.textContent = i.textContent;
+
+          menu.classList.add("hidden");
+          icon.classList.remove("rotate-180");
+        });
+      });
+
+      window.addEventListener("click", (e) => {
+        if (!btn.contains(e.target) && !menu.contains(e.target)) {
+          menu.classList.add("hidden");
+          icon.classList.remove("rotate-180");
+        }
+      });
+    }
+
+    // Initialize filters
+    setupFilter("langDropdownBtn", "langDropdownMenu", "dropdownIcon", "lang", "selectedLang");
+    setupFilter("genreDropdownBtn", "genreDropdownMenu", "dropdownIcon2", "genre", "selectedGenre");
+    setupFilter("formatDropdownBtn", "formatDropdownMenu", "dropdownIcon3", "format", "selectedFormat");
   </script>
 
 </body>
