@@ -154,68 +154,8 @@
   <section class="max-w-7xl mx-auto px-6 mt-16 mb-10">
     <h3 class="text-3xl font-bold mb-8 font-[Outfit]">Recommended Movies</h3>
 
-    <div class="flex overflow-x-auto gap-6 pb-4 no-scrollbar">
-      <!-- Movie Card -->
-      <div
-        class="min-w-[250px] bg-white rounded-xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 overflow-hidden">
-        <img src="https://placehold.co/250x350/2C3E50/E47E64?text=ANIMAL" alt="Animal"
-          class="w-full h-[350px] object-cover">
-        <div class="p-4">
-          <h4 class="text-lg font-semibold">Animal</h4>
-          <p class="text-gray-500 text-sm">Action | Telugu/Hindi</p>
-        </div>
-      </div>
-
-      <div
-        class="min-w-[250px] bg-white rounded-xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 overflow-hidden">
-        <img src="https://placehold.co/250x350/69A6B2/2C3E50?text=KANTARA" alt="Kantara"
-          class="w-full h-[350px] object-cover">
-        <div class="p-4">
-          <h4 class="text-lg font-semibold">Kantara</h4>
-          <p class="text-gray-500 text-sm">Action | Kannada</p>
-        </div>
-      </div>
-
-      <div
-        class="min-w-[250px] bg-white rounded-xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 overflow-hidden">
-        <img src="https://placehold.co/250x350/E47E64/2C3E50?text=DUNKI" alt="Dunki"
-          class="w-full h-[350px] object-cover">
-        <div class="p-4">
-          <h4 class="text-lg font-semibold">Dunki</h4>
-          <p class="text-gray-500 text-sm">Drama | Hindi</p>
-        </div>
-      </div>
-
-      <div
-        class="min-w-[250px] bg-white rounded-xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 overflow-hidden">
-        <img src="https://placehold.co/250x350/8b0000/FFFFFF?text=JAWAN" alt="Jawan"
-          class="w-full h-[350px] object-cover">
-        <div class="p-4">
-          <h4 class="text-lg font-semibold">Jawan</h4>
-          <p class="text-gray-500 text-sm">Action | Hindi/Tamil</p>
-        </div>
-      </div>
-
-      <div
-        class="min-w-[250px] bg-white rounded-xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 overflow-hidden">
-        <img src="https://placehold.co/250x350/607D8B/FFFFFF?text=PATHAAN" alt="Pathaan"
-          class="w-full h-[350px] object-cover">
-        <div class="p-4">
-          <h4 class="text-lg font-semibold">Pathaan</h4>
-          <p class="text-gray-500 text-sm">Thriller | Hindi</p>
-        </div>
-      </div>
-
-      <div
-        class="min-w-[250px] bg-white rounded-xl shadow-md hover:shadow-xl transition-transform hover:-translate-y-1 overflow-hidden">
-        <img src="https://placehold.co/250x350/FF8A65/2C3E50?text=TIGER+3" alt="Tiger 3"
-          class="w-full h-[350px] object-cover">
-        <div class="p-4">
-          <h4 class="text-lg font-semibold">Tiger 3</h4>
-          <p class="text-gray-500 text-sm">Action | Hindi</p>
-        </div>
-      </div>
-    </div>
+    <div id="recommendedMovies" class="flex overflow-x-auto gap-6 pb-4 no-scrollbar"></div>
+    <p id="recommendedEmpty" class="text-gray-500 mt-4 hidden">Movies will appear here after the backend responds.</p>
   </section>
 
   <!-- Concerts -->
@@ -295,6 +235,8 @@
     </p>
   </footer>
 
+  <script src="assets/js/backend.js"></script>
+  <script src="assets/js/home-page.js"></script>
   <script>
     document.querySelector('select').addEventListener('change', e => {
       console.log('City selected:', e.target.value);

@@ -168,61 +168,8 @@
         <h1 class="text-2xl font-semibold mb-8 text-center">
           Movies in Bhubaneswar
         </h1>
-        <div class="flex flex-wrap gap-6 max-w-6xl mx-auto">
-
-          <!-- Movie 1 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
-            <a href="MovieDet.html" target="_blank">
-              <img
-                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MzEsIE9jdCAyMDI1,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00453094-xmjnhznqmh-portrait.jpg"
-                alt="Baahubali" class="w-full h-94 object-cover">
-            </a>
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">Baahubali: The Epic</h2>
-              <p class="text-gray-600 text-sm">Action / Drama / Fantasy</p>
-            </div>
-          </div>
-
-          <!-- Movie 2 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
-            <a href="MovieDet1.html" target="_blank">
-              <img
-                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTksIERlYyAyMDI1,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00407893-bdvzfvrqja-portrait.jpg"
-                alt="Avatar" class="w-full h-94 object-cover">
-            </a>
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">Avatar: Fire and Ash</h2>
-              <p class="text-gray-600 text-sm">Action / Adventure / Fantasy</p>
-            </div>
-          </div>
-
-          <!-- Movie 3 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
-            <a href="MovieDet2.html" target="_blank">
-              <img
-                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-MTksIE1hciAyMDI2,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00378770-dnthkxmuqq-portrait.jpg"
-                alt="Toxic" class="w-full h-94 object-cover">
-            </a>
-            <div class="p-4">
-              <h2 class="text-lg font-semibold mb-1">Toxic: A Fairy Tale for Grown-ups</h2>
-              <p class="text-gray-600 text-sm">Action / Thriller</p>
-            </div>
-          </div>
-
-          <!-- Movie 4 -->
-          <div class="bg-white rounded-lg shadow-md overflow-hidden cursor-pointer w-[14rem]">
-            <a href="MovieDet3.html" target="_blank">
-              <img
-                src="https://assets-in.bmscdn.com/discovery-catalog/events/tr:w-400,h-610,bg-CCCCCC:w-400.0,h-660.0,cm-pad_resize,bg-000000,fo-top:l-text,ie-OSwgSmFuIDIwMjY%3D,fs-29,co-FFFFFF,ly-612,lx-24,pa-8_0_0_0,l-end/et00383697-ewxeqqnmvj-portrait.jpg"
-                alt="The Raja Saab" class="w-full h-94 object-cover">
-            </a>
-            <div class="p-5">
-              <h2 class="text-lg font-semibold mb-1">The Raja Saab</h2>
-              <p class="text-gray-600 text-sm">Comedy / Horror / Romantic</p>
-            </div>
-          </div>
-
-        </div>
+        <div id="movieGrid" class="flex flex-wrap gap-6 max-w-6xl mx-auto"></div>
+        <div id="movieGridEmpty" class="text-center text-gray-500 mt-6 hidden">No movies found for the selected filters.</div>
       </div>
     </div>
   </section>
@@ -245,6 +192,8 @@
     </p>
   </footer>
 
+  <script src="assets/js/backend.js"></script>
+  <script src="assets/js/movie-list.js"></script>
   <!-- FILTER SCRIPT -->
   <script>
     function setupFilter(dropBtnId, menuId, iconId, itemsClass, selectedOutputId) {

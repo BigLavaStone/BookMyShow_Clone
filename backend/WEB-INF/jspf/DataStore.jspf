@@ -1,0 +1,156 @@
+<%@ page import="java.util.*" %>
+<%@ page import="jakarta.servlet.ServletContext" %>
+<%
+  synchronized (application) {
+    if (application.getAttribute("dataStore") == null) {
+      Map<String, List<Map<String, Object>>> store = new LinkedHashMap<>();
+      store.put("movies", new ArrayList<>());
+      store.put("cinemas", new ArrayList<>());
+      store.put("users", new ArrayList<>());
+      store.put("bookings", new ArrayList<>());
+      store.put("payouts", new ArrayList<>());
+      application.setAttribute("dataStore", store);
+    }
+    if (application.getAttribute("seeded") == null) {
+      Map<String, List<Map<String, Object>>> store = (Map<String, List<Map<String, Object>>>) application.getAttribute("dataStore");
+
+      List<Map<String, Object>> movies = store.get("movies");
+      if (movies.isEmpty()) {
+        movies.add(buildMovie(
+          "Animal",
+          "Action",
+          "Hindi",
+          144,
+          4.3,
+          "https://placehold.co/250x350/2C3E50/E47E64?text=ANIMAL",
+          220,
+          "2025-01-05",
+          "A son goes to extreme lengths to protect his father, blurring lines between love and obsession.",
+          Arrays.asList("Ranbir Kapoor", "Anil Kapoor", "Rashmika Mandanna")
+        ));
+        movies.add(buildMovie(
+          "Kantara",
+          "Action",
+          "Kannada",
+          150,
+          4.5,
+          "https://placehold.co/250x350/69A6B2/2C3E50?text=KANTARA",
+          200,
+          "2025-02-11",
+          "A divine legend collides with greed and power in a coastal village.",
+          Arrays.asList("Rishab Shetty", "Sapthami Gowda", "Kishore")
+        ));
+        movies.add(buildMovie(
+          "Dunki",
+          "Drama",
+          "Hindi",
+          130,
+          4.0,
+          "https://placehold.co/250x350/E47E64/2C3E50?text=DUNKI",
+          180,
+          "2025-03-22",
+          "Friends embark on an illegal journey to chase their overseas dreams.",
+          Arrays.asList("Shah Rukh Khan", "Taapsee Pannu", "Boman Irani")
+        ));
+      }
+
+      List<Map<String, Object>> cinemas = store.get("cinemas");
+      if (cinemas.isEmpty()) {
+        cinemas.add(buildCinema("Central Cineplex", "Bhubaneswar", 6, Arrays.asList("IMAX", "Dolby Atmos")));
+        cinemas.add(buildCinema("Galaxy Screens", "Bengaluru", 8, Arrays.asList("4DX", "Gold Class")));
+      }
+
+      List<Map<String, Object>> users = store.get("users");
+      if (users.isEmpty()) {
+        users.add(buildUser("Alice Mehta", "alice@example.com", "alice123", "user"));
+        users.add(buildUser("Raj Admin", "admin@example.com", "admin123", "admin"));
+      }
+
+      List<Map<String, Object>> payouts = store.get("payouts");
+      if (payouts.isEmpty()) {
+        payouts.add(buildPayout("Galaxy Screens", 120000.00, "pending"));
+        payouts.add(buildPayout("Central Cineplex", 83000.00, "completed"));
+      }
+
+      List<Map<String, Object>> bookings = store.get("bookings");
+      if (bookings.isEmpty() && !users.isEmpty() && !movies.isEmpty() && !cinemas.isEmpty()) {
+        Map<String, Object> sampleUser = users.get(0);
+        Map<String, Object> sampleMovie = movies.get(0);
+        Map<String, Object> sampleCinema = cinemas.get(0);
+        bookings.add(buildBooking(
+          (String) sampleUser.get("id"),
+          (String) sampleMovie.get("id"),
+          (String) sampleCinema.get("id"),
+          "2025-01-15T18:00:00",
+          Arrays.asList("A1", "A2", "A3")
+        ));
+      }
+
+      application.setAttribute("seeded", Boolean.TRUE);
+    }
+  }
+%>
+<%
+  Map<String, List<Map<String, Object>>> dataStore = (Map<String, List<Map<String, Object>>>) application.getAttribute("dataStore");
+%>
+<%!
+  private Map<String, Object> buildMovie(String title, String genre, String language, int duration, double rating, String poster, int price, String releaseDate, String synopsis, List<String> cast) {
+    Map<String, Object> movie = new LinkedHashMap<>();
+    movie.put("id", "mov-" + UUID.randomUUID());
+    movie.put("title", title);
+    movie.put("genre", genre);
+    movie.put("language", language);
+    movie.put("duration", duration);
+    movie.put("rating", rating);
+    movie.put("poster", poster);
+    movie.put("price", price);
+    movie.put("releaseDate", releaseDate);
+    movie.put("synopsis", synopsis);
+    movie.put("cast", cast);
+    movie.put("createdAt", new Date().toString());
+    return movie;
+  }
+
+  private Map<String, Object> buildCinema(String name, String city, int screens, List<String> facilities) {
+    Map<String, Object> cinema = new LinkedHashMap<>();
+    cinema.put("id", "cin-" + UUID.randomUUID());
+    cinema.put("name", name);
+    cinema.put("city", city);
+    cinema.put("screens", screens);
+    cinema.put("facilities", facilities);
+    return cinema;
+  }
+
+  private Map<String, Object> buildUser(String name, String email, String password, String role) {
+    Map<String, Object> user = new LinkedHashMap<>();
+    user.put("id", "usr-" + UUID.randomUUID());
+    user.put("name", name);
+    user.put("email", email);
+    user.put("password", password);
+    user.put("role", role);
+    user.put("createdAt", new Date().toString());
+    return user;
+  }
+
+  private Map<String, Object> buildPayout(String vendorName, double amount, String status) {
+    Map<String, Object> payout = new LinkedHashMap<>();
+    payout.put("id", "pay-" + UUID.randomUUID());
+    payout.put("vendor", vendorName);
+    payout.put("amount", amount);
+    payout.put("status", status);
+    payout.put("dueDate", new Date().toString());
+    return payout;
+  }
+
+  private Map<String, Object> buildBooking(String userId, String movieId, String cinemaId, String showTime, List<String> seats) {
+    Map<String, Object> booking = new LinkedHashMap<>();
+    booking.put("id", "bkg-" + UUID.randomUUID());
+    booking.put("userId", userId);
+    booking.put("movieId", movieId);
+    booking.put("cinemaId", cinemaId);
+    booking.put("showTime", showTime);
+    booking.put("seats", seats);
+    booking.put("createdAt", new Date().toString());
+    return booking;
+  }
+%>
